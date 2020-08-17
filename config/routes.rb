@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :update, :edit]
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :products
   end
 
   resources :genres, only: [:index]
