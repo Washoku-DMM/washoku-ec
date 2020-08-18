@@ -1,0 +1,24 @@
+<h2>商品編集</h2>
+
+<%= form_for(@product, url: admin_product_path) do |f| %>
+
+<%= f.attachment_filed :image %>
+
+<h4>商品名</h4>
+<%= f.text_filed:name %>
+
+<h4>商品説明</h4>
+<%= f.text_area:product_introduction %>
+
+<h4>ジャンル</h4>
+<!-- ↓作成途中 -->
+<%= f.select %>
+
+<h4>税抜価格</h4>
+<%= f.text_filed:price %>円
+
+<h4>販売ステータス</h4>
+<!-- ↓作成途中 -->
+<%= f.select %>
+
+<%= f.submit '変更を保存'　%>
