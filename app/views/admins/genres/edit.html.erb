@@ -1,2 +1,6 @@
 <h2>ジャンル編集</h2>
-<p>ジャンル名<%= f.texfield %><%#= 有効無効ボタン %><%= link_to "編集を保存する", admin_genre_path(genre.id) %></p>
+<p>ジャンル名
+  <%= f.texfield %>
+  <%= f.radio_button :status, :enabled, checked: "checked" %>有効
+  <%= f.radio_button :status, :disabled, checked: "checked" %>無効
+  <%= link_to "編集を保存する", admin_genre_path(genre.id) %></p>

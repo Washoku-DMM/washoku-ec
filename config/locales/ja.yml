@@ -1,0 +1,6 @@
+ja:
+  enums:
+    genres:
+      status:
+        enabled: 有効
+        disabled: 無効
