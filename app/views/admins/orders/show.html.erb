@@ -1,0 +1,49 @@
+<h2>注文履歴詳細</h2>
+
+	<h4>購入者</h4>
+		<%= @customer.name %>
+	<h4>配送先</h4>
+		〒<%= @delivery.postal_code %><%= @delivery.address %><br>
+		<%= @delivery.name %>
+	<h4>支払い方法</h4>
+		<%= @order.payment_methods %>
+	<h4>注文ステータス</h4>
+		<!-- ↓作成途中 -->
+        <%= f.select %>
+		<%= f.submit '更新'　%>
+
+	<table>
+	    <thead>
+		    <tr>
+		      <th>商品名</th>
+		      <th>単価（税込）</th>
+		      <th>数量</th>
+		      <th>小計</th>
+		      <th>制作ステータス<th>
+		      <th colspan="1"></th>
+	        </tr>
+	  　</thead>
+	    <tbody>
+	      <!-- ↓複数の変数を使うのでzipメゾットを使うかも -->
+	      <% @orders.each do |order| %>
+	       　<tr>
+	         　<td><%= @order.name %></td>
+	         　<td><%= @product.price *1.1 %></td>
+	         　<td><%= @order_product.count %></td>
+	         　<td><%= @product.price *1.1 *@order_product.count %></td>
+	           <td><!-- ↓作成途中 -->
+                  <%= f.select %></td>
+	           <td><%=f.submit '更新'　%></td>
+	       　</tr>
+	      <% end %>
+	    </tbody>
+	</table>
+
+	<div>
+		<strong>商品合計</strong>
+			<%= %>
+		<strong>送料</strong>
+		    <p>８００円</p>
+		<strong>請求金額合計</strong>
+			<%= %>
+	</div>

@@ -176,6 +176,10 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+<<<<<<< HEAD
+=======
+    rb-readline (0.5.5)
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -264,6 +268,10 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
+<<<<<<< HEAD
+=======
+  rb-readline
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
   refile!
   refile-mini_magick
   sass-rails (~> 5.0)

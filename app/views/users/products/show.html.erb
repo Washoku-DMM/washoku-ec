@@ -1,0 +1,9 @@
+
+<!-- サイドバーのジャンルは部分テンプレートを挿入 -->
+
+<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg'  %>
+	<h1><%= @product.name %></h1>
+	<h4><%= @product.product_introduction %></h4>
+	<h4>¥</h4><%= @product.price %> <h4>（税込）</h4>
+
+
