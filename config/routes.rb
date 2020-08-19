@@ -1,19 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :users
 
-<<<<<<< HEAD
-  namespace :admin do
-    resources :genres, only: [:index, :create, :update, :edit]
-    resources :orders, only: [:index, :show, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-=======
+
   namespace :admins do
     resources :genres, only: [:index, :create, :update, :edit]
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products
->>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
+    devise_for :admins
+    get 'homes/top'
   end
 
   resources :genres, only: [:index]
