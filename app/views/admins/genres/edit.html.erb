@@ -1,6 +1,8 @@
 <h2>ジャンル編集</h2>
+<%= form_with model: @genre, url: admins_genres_path do |f| %>
 <p>ジャンル名
-  <%= f.texfield %>
+  <%= f.text_field :name %>
   <%= f.radio_button :status, :enabled, checked: "checked" %>有効
   <%= f.radio_button :status, :disabled, checked: "checked" %>無効
-  <%= link_to "編集を保存する", admin_genre_path(genre.id) %></p>
+  <%= link_to "編集を保存する", admins_genres_path %></p>
+<% end %>
