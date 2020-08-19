@@ -1,4 +1,6 @@
 class Admins::CustomersController < ApplicationController
+<<<<<<< HEAD
+=======
 
   def index
     @customers = Customer.all
@@ -31,4 +33,5 @@ class Admins::CustomersController < ApplicationController
   end
 
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end

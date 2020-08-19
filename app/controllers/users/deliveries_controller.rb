@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+class User::DeliveriesController < ApplicationController
+=======
 class Users::DeliveriesController < ApplicationController
 
 def index
@@ -37,4 +40,5 @@ end
 
 
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end

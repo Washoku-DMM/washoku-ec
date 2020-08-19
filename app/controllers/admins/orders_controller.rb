@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+class Admin::OrdersController < ApplicationController
+=======
 class Admins::OrdersController < ApplicationController
 
   def index
@@ -17,4 +20,5 @@ class Admins::OrdersController < ApplicationController
   end
 
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end

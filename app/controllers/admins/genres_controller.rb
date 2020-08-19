@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+class Admin::GenresController < ApplicationController
+end
+=======
 class Admins::GenresController < ApplicationController
 
   def index
@@ -37,3 +41,4 @@ private
 
 end
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
