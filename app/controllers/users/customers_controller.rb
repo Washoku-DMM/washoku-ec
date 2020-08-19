@@ -1,4 +1,6 @@
 class Users::CustomersController < ApplicationController
+<<<<<<< HEAD
+=======
 
 
 def show
@@ -27,4 +29,5 @@ def customer_params
 end
 
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end

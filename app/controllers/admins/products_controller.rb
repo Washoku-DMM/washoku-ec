@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+<<<<<<< HEAD
+=======
 
 
   def index
@@ -30,4 +32,5 @@ class Admin::ProductsController < ApplicationController
   end
 
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end

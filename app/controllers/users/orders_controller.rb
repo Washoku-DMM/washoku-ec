@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+class User::OrdersController < ApplicationController
+
+   def index
+   	   @orders = Order.all
+   	   @user = current_user
+   end
+
+
+   def show
+   	   @order = Order.find(params[:id])
+   	   
+   end
+
+   def create
+   end
+
+   def update
+   end
+=======
 class Users::OrdersController < ApplicationController
 
 # orderコントローラー話し合ってからかく
@@ -29,6 +49,7 @@ end
 
 
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 
 
 end

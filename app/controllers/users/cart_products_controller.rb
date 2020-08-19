@@ -1,4 +1,6 @@
 class Users::CartProductsController < ApplicationController
+<<<<<<< HEAD
+=======
 
 def index
 	@carts = Cart_product.all
@@ -46,4 +48,5 @@ end
 
 
 
+>>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end
