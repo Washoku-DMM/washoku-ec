@@ -1,4 +1,4 @@
-<!-- header -->
+header -->
 <%= render 'admins/header' %>
 <!-- header -->
 <h2>商品一覧</h2>
@@ -20,11 +20,12 @@
          <td><%= product.id %></td>
          <td><%= link_to product.name, admins_product_path(product.id) %></td>
          <td><%= product.price %></td>
-         <td><%#= product.genre %></td>
+         <td><%#= product.genre.name %></td>
+          <!-- has_many ができてない -->
          <td><%= product.is_active %></td>
        </tr>
       <% end %>
     </tbody>
   </table>
 
-  <!-- ページング機能で実装予定 -->
+  <!-- ページング機能で実装予定
