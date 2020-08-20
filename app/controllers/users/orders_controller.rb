@@ -11,11 +11,15 @@ class User::OrdersController < ApplicationController
 
    def new
    		@order = Order.new
+         @customer =Customer.find(current_user)
+         @delivery = delivery.new
    end
 
    def confirm
-   		@cart = Cart.all
+         @user = current_user
+   		@carts = Cart.all(@user)
    		@order = Order.new(order_params)
+         @order_product = Oder_product.new
    		render :new if @order.invalid?
    end
 

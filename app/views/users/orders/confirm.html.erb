@@ -1,6 +1,5 @@
 <h3>注文情報確認</h3>
 
-<%= form_for @carts do |f| %>
  <table>
 
  	<thead>
@@ -14,34 +13,49 @@
 
  	<tbody>
  		<tr>
- 			<td><%= @carts.product.image %><%= @cart.product.name %></td>
- 			<td><%= ((@cart.product.price)*1.1) %></td>
- 			<td><%= @cart.count %></td>
- 			<td><%= ((@cart.product.price)*1.1)*(@cart.count) %></td>
+ 			<% @carts.each do |cart| %>
+ 			<td><%= cart.product.image %><%= cart.product.name %></td>
+ 			<td><%= ((cart.product.price)*1.1) %></td>
+ 			<td><%= cart.count %></td>
+ 			<td><%= ((cart.product.price)*1.1)*(cart.count) %></td>
 		</tr>
  	</tbody>
 
  </table>
 
+
+<%= form_for @order do |f| %>
+
 <table>
+
 		<tr>
 			<th>送料</th>
-			<td><%= shipping_fee %></td>
+			<td><%= @order.shipping_fee %></td>
+			<!-- ↑全国一律800円なので、default:800？ -->
 		</tr>
 		<tr>
 			<th>合計金額</th>
-			<td></td>
+			<td>@order</td>
 		</tr>
 		<tr>
 			<th>請求金額</th>
-			<td><%= billing_amount %></td>
+			<td><%= @order.billing_amount %></td>
 		</tr>
 </table>
 
+
+<h3>支払方法</h3>
+<%=　@order.payment_methods　%>
+
+<h3>お届け先</h3>
+<%=　@order.address　%>
+
+
   <div class="actions">
-    <%= f.submit '投稿画面に戻る', name: 'back' %>
+    <%= f.submit '注文情報入力画面へ戻る', name: 'back' %>
   </div>
+
   <div class="actions">
-    <%= f.submit '投稿する' %>
+    <%= f.submit '購入を確定する' %>
   </div>
 <% end %>

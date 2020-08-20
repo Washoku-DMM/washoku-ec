@@ -1,0 +1,61 @@
+<h2>配送先登録/一覧</h2>
+
+
+<%= form_for(@delivery) do |f| %>
+
+    <div class="field">
+      <%= f.label "郵便番号（ハイフンなし）"  %>
+      <%= f.text_field :postal_code, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label　"住所"  %>
+      <%= f.text_area :adress, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label　"宛名"  %>
+      <%= f.text_field :name, autofocus: true, class: "name" %>
+    </div>
+
+    <div class="actions">
+			 <%= f.submit "登録する",class: "btn btn-success" %>
+	</div>
+
+<% end %>
+
+<% @deliveries.each do |delivery| %>
+
+	<table>
+		<thead>
+			<tr>
+				<th>郵便番号</th>
+				<th>住所</th>
+				<th>宛名</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>delivery.postal_code</td>
+				<td>deliver.address</td>
+				<td>delivery.name</td>
+				<td>
+					<%= link_to "編集する", edit_delivery_path(delivery), class: "btn-sm btn-success edit_delivery_#{delivery.id}" %>
+
+					<%= link_to "削除する", delivery_path(delivery), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_delivery_#{delivery.id}" %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+
+index	配送先一覧表示する
+create	配送先追加する（郵便番号・住所・宛名）
+edit	配送先を編集画面を表示する
+update	配送先を編集する
+update	配送先を編集する
+destroy	配送先を削除する

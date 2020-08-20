@@ -1,26 +1,38 @@
 <h2>注文情報入力</h2>
 
-<%= form_with model: @order, url: admins_genres_path do |f| %>
+<%= form_with(model: order, url: {action: 'confirm'}) do |f| %>
 
 <h3>支払方法</h3>
 
-<%= f.radio_button :status, :enabled, checked: "checked" %>クレジットカード
- <%= f.radio_button :status, :disabled, checked: "checked" %>銀行振込
+<label>
+<%= f.radio_button :payment_methods, :credit, checked: "checked" %>クレジットカード
+</label>
+
+<br>
+
+<label>
+<%= f.radio_button :payment_methods, :bank, checked: "checked" %>銀行振込
+</label>
 
 
 <h3>お届け先</h3>
 
-	<h3>ご自身の住所</h3>
-		<!-- 頭に○クリック実装する --><%   %>
+	<label>
+	<%= f.radio_button :address, :customer_address, checked: "checked" %>ご自身の住所
+		<%= @customer.adress %>
+	</label>
 
-	<h3>登録済住所から選択</h3>
-		<!-- 頭に○クリック実装する -->
-		<!-- derivery.adressをプルダウンで一覧表示 -->
+	<label>
+	<%= f.radio_button :address, :delivery_address, checked: "checked" %>登録済住所から選択
+		<%= f.collection_select :postal_code, :address, delivery.all, :delivery_address, :postal_code, :address, include_blank: "選択して下さい" %>
+		<!-- ↑多分間違ってる -->
+	</label>
 
-	<!-- 頭に○クリック実装する --><h3>新しいお届け先</h3>
+	<label>
+	<%= f.radio_button :address, :new_delivery_address, checked: "checked" %>登録済住所から選択新しいお届け先
 	<!-- ○クリックを押すと、登録するボタンが出てきて、createアクションができるようにする -->
 
-		<%= form_for(@order) do |f| %>
+		<%= form_for(@delivery) do |f| %>
 
 	        <div class="field">
 	          <%= f.label "郵便番号（ハイフンなし）"  %>
@@ -37,10 +49,17 @@
 	          <%= f.text_field :name, autofocus: true, class: "name" %>
 	        </div>
 
-        <% end %>
+	        <div class="actions">
+      			 <%= f.submit "お届け先を登録する",class: "btn btn-success" %>
+    		</div>
 
-        <div class="actions">
-           <%= f.submit "確認画面へ進む",class: "btn btn-success" %>
-        </div>
+        <% end %>
+	</label>
+
+    <div class="actions">
+       <%= f.submit "確認画面へ進む",class: "btn btn-success" %>
+    </div>
+
+<% end %>
 
 
