@@ -41,9 +41,4 @@ def cart_params
 end
 
 
-
-
-
-
-
 end
