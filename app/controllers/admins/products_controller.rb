@@ -12,6 +12,10 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @genre = Genre.find(params[:id])
+<<<<<<< HEAD
+=======
+
+>>>>>>> 63706cb0660a71f7bffe9d01f9a4a17af2251103
   end
 
   def create
