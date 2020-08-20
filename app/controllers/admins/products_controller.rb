@@ -8,6 +8,8 @@ class Admin::ProductsController < ApplicationController
   end
   def show
     @product = Product.find(params[:id])
+    @genre = Genre.find(params[:id])
+
   end
   def create
     @product = Product.new(product_params)
