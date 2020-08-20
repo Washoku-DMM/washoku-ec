@@ -11,18 +11,24 @@ Rails.application.routes.draw do
 
   resources :genres, only: [:index]
 
-  get 'homes/about'
-  root 'homes#top'
+    get 'homes/about'
+    root 'homes#top'
 
-  resources :orders, only: [:index, :show, :create, :update]
+    resources :orders, only: [:index, :show, :create, :new]
 
-  resources :products
+    post 'orders/confirm'
 
-  resources :customers, only: [:show, :edit, :update, :destroy]
+    get 'orders/ordercomplete'
 
-  resources :cart_products, only: [:create, :destroy, :index]
+    resources :products
 
-  resources :deliveries, except: [:show]
+    resources :customers, only: [:show, :edit, :update, :destroy]
+
+    resources :cart_products, only: [:create, :destroy, :index]
+
+    resources :deliveries, except: [:show]
+
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

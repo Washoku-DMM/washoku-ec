@@ -1,6 +1,10 @@
+<<<<<<< HEAD:app/controllers/users/orders_controller.rb
 class User::OrdersController < ApplicationController
 <<<<<<< HEAD
 =======
+=======
+class OrdersController < ApplicationController
+>>>>>>> 15183791c5575368b77c4958c8f027cce8c96eb6:app/controllers/orders_controller.rb
 
    def index
    	   @orders = Order.all(@user)
@@ -40,7 +44,7 @@ class User::OrdersController < ApplicationController
 	   	end
    end
 
-   def about
+   def ordercomplete
    end
 
    private
