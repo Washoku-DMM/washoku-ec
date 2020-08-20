@@ -8,8 +8,9 @@
 <%= form_with model: @genre, url: admins_genres_path do |f| %>
 <p>ジャンル
   <%= f.text_field :name %>
-  <%= f.radio_button :status, :enabled, checked: "checked" %>有効
-  <%= f.radio_button :status, :disabled, checked: "checked" %>無効
+  <%= f.radio_button :is_active, :enabled, checked: true %>有効
+  <%= f.radio_button :is_active, :disabled, checked: false %>無効
+  <!-- 全部trueのなぞ -->
   <%= f.submit "追加" %></p>
 <% end %>
 
@@ -26,7 +27,7 @@
     <tr>
       <td><%= genre.name %></td>
       <td><%= genre.is_active %></td>
-      <td><%#= link_to "編集する", edit_admins_genre_path %>編集する</td>
+      <td><%= link_to "編集する", edit_admins_genre_path(genre) %></td>
     </tr>
     <% end %>
   </tbody>
