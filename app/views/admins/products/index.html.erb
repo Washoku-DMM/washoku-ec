@@ -3,7 +3,7 @@
 <!-- header -->
 <h2>商品一覧</h2>
 
-　<table>
+<table>
     <thead>
 	    <tr>
 	      <th>商品ID</th>
@@ -11,17 +11,18 @@
 	      <th>税抜き価格</th>
 	      <th>ジャンル</th>
 	      <th>ステータス</th>
+        <th><td><%= link_to "＋", new_admins_product_path %></td></th>
         </tr>
-  　</thead>
+  </thead>
     <tbody>
       <% @products.each do |product| %>
-       　<tr>
-         　<td><%= product.id %></td>
-         　<td><%= link_to product.name,admin_product_path(product.id) %></td>
-         　<td><%= product.price %></td>
-         　<td><%= product.genre %></td>
-         　<td><%= product.is_active %></td>
-       　</tr>
+       <tr>
+         <td><%= product.id %></td>
+         <td><%= link_to product.name, admins_product_path(product.id) %></td>
+         <td><%= product.price %></td>
+         <td><%#= product.genre %></td>
+         <td><%= product.is_active %></td>
+       </tr>
       <% end %>
     </tbody>
   </table>

@@ -3,25 +3,27 @@
 <!-- header -->
 <h2>商品新規登録</h2>
 
-<%= form_with(@product, url: admin_product_path) do |f| %>
+<%= form_with model: @product, url: admins_products_path do |f| %>
 
-<%= f.attachment_filed :image %>
+<%= f.attachment_field :image %>
 
 <h4>商品名</h4>
-<%= f.text_filed:name %>
+<%= f.text_field :name %>
 
 <h4>商品説明</h4>
-<%= f.text_area:product_introduction %>
+<%= f.text_area :product_introduction %>
 
 <h4>ジャンル</h4>
 <!-- ↓作成途中 -->
-<%= f.select %>
+<%#= f.select %>
 
 <h4>税抜価格</h4>
-<%= f.text_filed:price %>円
+<%= f.text_field :price %>円
 
 <h4>販売ステータス</h4>
 <!-- ↓作成途中 -->
-<%= f.select %>
+<%#= f.select %>
 
-<%= f.submit '新規登録'　%>
+<%= f.submit "新規登録" %>
+
+<% end %>
