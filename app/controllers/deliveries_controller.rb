@@ -1,4 +1,4 @@
-class Users::DeliveriesController < ApplicationController
+class DeliveriesController < ApplicationController
 
 def index
 	@delivery = Delivery.new

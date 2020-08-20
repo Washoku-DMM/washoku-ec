@@ -1,4 +1,4 @@
-class User::OrdersController < ApplicationController
+class OrdersController < ApplicationController
 
    def index
    	   @orders = Order.all(@user)
@@ -38,7 +38,7 @@ class User::OrdersController < ApplicationController
 	   	end
    end
 
-   def about
+   def ordercomplete
    end
 
    private
