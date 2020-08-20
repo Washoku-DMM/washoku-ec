@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class ProductsController < ApplicationController
 
 
   def index

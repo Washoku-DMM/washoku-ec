@@ -1,0 +1,14 @@
+
+<!-- サイドバーのジャンルは部分テンプレートを挿入 -->
+
+<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg'  %>
+	<h1><%= @product.name %></h1>
+	<h4><%= @product.product_introduction %></h4>
+	<h4>¥</h4><%= @product.price %> <h4>（税込）</h4>
+
+
+  <%= form_for @count do |f| %>
+     <%= f.select :counts, options_for_select((1..99).to_a), include_blank: "個数選択" %>
+
+     <%= f.submit 'カートに入れる'%>
+  <% end %>

@@ -1,0 +1,61 @@
+<h3>注文情報確認</h3>
+
+ <table>
+
+ 	<thead>
+ 		<tr>
+ 			<th>商品名</th>
+ 			<th>単価（税込）</th>
+ 			<th>数量</th>
+ 			<th>小計</th>
+ 		</tr>
+ 	</thead>
+
+ 	<tbody>
+ 		<tr>
+ 			<% @carts.each do |cart| %>
+ 			<td><%= cart.product.image %><%= cart.product.name %></td>
+ 			<td><%= ((cart.product.price)*1.1) %></td>
+ 			<td><%= cart.count %></td>
+ 			<td><%= ((cart.product.price)*1.1)*(cart.count) %></td>
+		</tr>
+ 	</tbody>
+
+ </table>
+
+
+<%= form_for @order do |f| %>
+
+<table>
+
+		<tr>
+			<th>送料</th>
+			<td><%= @order.shipping_fee %></td>
+			<!-- ↑全国一律800円なので、default:800？ -->
+		</tr>
+		<tr>
+			<th>合計金額</th>
+			<td>@order</td>
+		</tr>
+		<tr>
+			<th>請求金額</th>
+			<td><%= @order.billing_amount %></td>
+		</tr>
+</table>
+
+
+<h3>支払方法</h3>
+<%=　@order.payment_methods　%>
+
+<h3>お届け先</h3>
+<%=　@order.address　%>
+
+
+  <div class="actions">
+    <%= f.submit '注文情報入力画面へ戻る', name: 'back' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit '購入を確定する' %>
+  </div>
+<% end %>
