@@ -1,6 +1,6 @@
 <h2>商品編集</h2>
 
-<%= form_for(@product, url: admin_product_path) do |f| %>
+<%= form_with(@product, url: admin_product_path) do |f| %>
 
 <%= f.attachment_filed :image %>
 
