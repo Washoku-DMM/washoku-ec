@@ -2,12 +2,20 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+<<<<<<< HEAD
     @customers = Customer.all
     @order_product = Order_product.all
+=======
+    @custmer =
+    @order_product =
+>>>>>>> 1d58b3206659e21ac27c6fb754d6a63cf4802b85
   end
 
   def show
     @order = Order.find(params[:id])
+    @custmer = Customer.find(params[:id])
+    @delivery = Delivery.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def update
