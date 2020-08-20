@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-class User::HomesController < ApplicationController
-=======
 class Users::HomesController < ApplicationController
 
 def top
@@ -12,7 +9,4 @@ end
 def about
 end
 
-
-
->>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end

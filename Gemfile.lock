@@ -179,6 +179,12 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
+<<<<<<< HEAD
+=======
+      mini_magick (~> 4.0)
+      refile (~> 0.5)
+      refile-mini_magick (= 0.2.0)
+>>>>>>> 0c088e2148a28d55bb38a0bf180a4b80910a7f10
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)

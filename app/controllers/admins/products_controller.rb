@@ -1,7 +1,4 @@
 class Admin::ProductsController < ApplicationController
-<<<<<<< HEAD
-=======
-
 
   def index
     @products = Product.all
@@ -31,6 +28,4 @@ class Admin::ProductsController < ApplicationController
     params.require(:product).permit(:name,:price,:is_active,:production_introduction,:image_id)
   end
 
-
->>>>>>> b0b12f333e0bd97cbdaf9a76cfdf18fc79d76657
 end
