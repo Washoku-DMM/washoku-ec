@@ -1,2 +1,2 @@
-class Users::GenresController < ApplicationController
+class User::GenresController < ApplicationController
 end
