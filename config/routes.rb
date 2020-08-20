@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
     resources :orders, only: [:index, :show, :create, :new]
 
+    post 'orders/confirm'
+
+    get 'orders/ordercomplete'
+
     resources :products
 
     resources :customers, only: [:show, :edit, :update, :destroy]
@@ -26,7 +30,7 @@ Rails.application.routes.draw do
 
     resources :deliveries, except: [:show]
 
-    get 'orders/ordercomplete'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
