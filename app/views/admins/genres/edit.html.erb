@@ -1,0 +1,13 @@
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
+
+
+<h2>ジャンル編集</h2>
+<%= form_with model: @genre, url: admins_genres_path do |f| %>
+<p>ジャンル名
+  <%= f.text_field :name %>
+  <%= f.radio_button :is_active, :enabled, checked: true %>有効
+  <%= f.radio_button :is_active, :disabled, checked: true %>無効
+  <%= f.submit "編集を保存する" %></p>
+<% end %>
