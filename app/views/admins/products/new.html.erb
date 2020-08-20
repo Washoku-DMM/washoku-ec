@@ -1,6 +1,9 @@
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
 <h2>商品新規登録</h2>
 
-<%= form_for(@product, url: admin_product_path) do |f| %>
+<%= form_with(@product, url: admin_product_path) do |f| %>
 
 <%= f.attachment_filed :image %>
 

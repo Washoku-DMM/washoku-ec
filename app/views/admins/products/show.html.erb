@@ -1,3 +1,6 @@
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
 <h2>商品詳細</h2>
 
 	<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg'  %>
@@ -23,7 +26,7 @@
 	  　</thead>
 	    <tbody>
 	      <!-- ↓複数の変数を使うのでzipメゾットを使うかも -->
-	      <% @orders.each do |order| %>
+	      <%# @orders.each do |order| %>
 	       　<tr>
 	         　<td><%= link_to order.create_at ,admin_order_path(order.id)%></td>
 	         　<td><%= customer.name %></td>
