@@ -1,6 +1,4 @@
-<<<<<<< HEAD:app/controllers/users/customers_controller.rb
-class Users::CustomersController < ApplicationController
-=======
+
 class CustomersController < ApplicationController
 
 def show
@@ -29,5 +27,4 @@ def customer_params
 end
 
 
->>>>>>> 15183791c5575368b77c4958c8f027cce8c96eb6:app/controllers/customers_controller.rb
 end

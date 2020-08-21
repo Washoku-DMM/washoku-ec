@@ -1,10 +1,5 @@
-<<<<<<< HEAD:app/controllers/users/orders_controller.rb
-class User::OrdersController < ApplicationController
-<<<<<<< HEAD
-=======
-=======
+
 class OrdersController < ApplicationController
->>>>>>> 15183791c5575368b77c4958c8f027cce8c96eb6:app/controllers/orders_controller.rb
 
    def index
    	   @orders = Order.all(@user)
@@ -54,5 +49,4 @@ class OrdersController < ApplicationController
    end
 
 
->>>>>>> ab332054afda5ade10805538c7095c4eac3b225b
 end

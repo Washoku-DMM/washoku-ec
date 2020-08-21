@@ -1,6 +1,4 @@
-<<<<<<< HEAD:app/controllers/users/products_controller.rb
-class User::ProductsController < ApplicationController
-=======
+
 class ProductsController < ApplicationController
 
 def index
@@ -20,5 +18,4 @@ end
 # end
 # あとで話し合う
 
->>>>>>> 15183791c5575368b77c4958c8f027cce8c96eb6:app/controllers/products_controller.rb
 end

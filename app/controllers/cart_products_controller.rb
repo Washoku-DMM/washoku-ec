@@ -1,6 +1,4 @@
-<<<<<<< HEAD:app/controllers/users/cart_products_controller.rb
-class Users::CartProductsController < ApplicationController
-=======
+
 class CartProductsController < ApplicationController
 
 def index
@@ -44,5 +42,4 @@ def cart_params
 end
 
 
->>>>>>> 15183791c5575368b77c4958c8f027cce8c96eb6:app/controllers/cart_products_controller.rb
 end
