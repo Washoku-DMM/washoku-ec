@@ -1,3 +1,4 @@
+
 class CartProductsController < ApplicationController
 
 def index

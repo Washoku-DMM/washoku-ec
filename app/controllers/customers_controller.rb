@@ -1,3 +1,4 @@
+
 class CustomersController < ApplicationController
 
 def show

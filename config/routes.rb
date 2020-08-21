@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-
   namespace :admins do
     resources :genres, only: [:index, :create, :update, :edit]
     resources :orders, only: [:index, :show, :update]

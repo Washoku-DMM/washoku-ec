@@ -28,13 +28,16 @@
 	        </tr>
 	  　</thead>
 	    <tbody>
+
+
 	      <!-- ↓複数の変数を使うのでzipメゾットを使うかも -->
+	      <!-- # <% @orders.each do |order| %> -->
 	      <%# @orders.each do |order| %>
 	       　<tr>
-	         　<td><%= @order.name %></td>
-	         　<td><%= @product.price *1.1 %></td>
-	         　<td><%= @order_product.count %></td>
-	         　<td><%= @product.price *1.1 *@order_product.count %></td>
+	         　<td><%= order.name %></td>
+	         　<td><%= product.price *1.1 %></td>
+	         　<td><%= order_product.count %></td>
+	         　<td><%= product.price *1.1 *order_product.count %></td>
 	           <td><!-- ↓作成途中 -->
                   <%= f.select %></td>
 	           <td><%=f.submit '更新'　%></td>
