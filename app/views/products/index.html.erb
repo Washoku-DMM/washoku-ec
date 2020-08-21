@@ -1,10 +1,15 @@
+<!-- header -->
+<%= render 'admins/header' %>
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-<h1>商品詳細</h1> <h4>(全</h4><%= @product.count %> <h4>件</h4>
 
-<% @lists.each do |product| %>
-<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg'  %>
-<%= link_to product.name,admin_product_path(product.id) %>
-<%= @product.price %>
+
+<!-- サイドバーのジャンルは部分テンプレートを挿入 -->
+<h1>商品詳細</h1> <h4>全 <%#= @product.count %>件</h4>
+
+<% @products.each do |product| %>
+<%= attachment_image_tag product, :image, :fill,300,300,format:'jpeg'  %>
+<%= link_to product.name, admins_product_path(product) %>
+<%= product.price %>
 
 <% end %>
 
