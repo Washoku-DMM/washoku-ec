@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products
-    devise_for :admins	
+    devise_for :admins
     get 'homes/top'
   end
 
