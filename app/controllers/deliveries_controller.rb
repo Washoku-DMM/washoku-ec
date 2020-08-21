@@ -1,6 +1,4 @@
-<<<<<<< HEAD:app/controllers/users/deliveries_controller.rb
-class User::DeliveriesController < ApplicationController
-=======
+
 class DeliveriesController < ApplicationController
 
 def index
@@ -36,5 +34,4 @@ def delivery_params
     params.require(:delivery).permit(:postal_code, :address, :name)
 end
 
->>>>>>> 15183791c5575368b77c4958c8f027cce8c96eb6:app/controllers/deliveries_controller.rb
 end
