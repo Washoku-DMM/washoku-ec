@@ -15,14 +15,14 @@
 
 <h4>ジャンル</h4>
 <!-- ↓作成途中 -->
-<%#= f.select %>
+<%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %>
 
 <h4>税抜価格</h4>
 <%= f.text_field :price %>円
 
 <h4>販売ステータス</h4>
-<!-- ↓作成途中 -->
-<%#= f.select %>
+<!-- ↓作成途中 値を返すのはtrue/falseじゃなくて販売中とかの方がいい？ -->
+<%= f.select :is_active, [["販売中", "true"], ["売切れ", "false"]] %>
 
 <%= f.submit "新規登録" %>
 
