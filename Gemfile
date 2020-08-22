@@ -68,3 +68,7 @@ gem 'jquery-rails'
 
 gem "rb-readline"
 gem "enum_help"
+
+
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
