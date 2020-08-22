@@ -1,45 +1,66 @@
-
 class CartProductsController < ApplicationController
 
-def index
-	@carts = Cart_product.all
+  before_action :authenticate_customer!
+  before_action :set_cart_product, only: [:show, :update, :destroy, :edit]
+  before_action :set_customer
 
+def index
+	@cart_products = @customer.cart_products.all
 end
 
 def create
-	@cart = Cart_product.new
-	@carts = Cart_product.all
-
-end
-
-def edit
-	@cart = Cart_product.find(params[:id])
-end
-
-def update
-	@cart = Cart_product.find(params[:id])
-	@cart.update
+	@cart_product = current_customer.cart_items.build(cart_product_params)
+	@current_product = CartProduct.find_by(product_id: @cart_product.product_id, customer_id: @cart_product.customer_id)
+	if @current_product.nill?
+		if @cart_product.save
+			flash[:success] = 'カートに商品が追加されました！'
+			redirect_to cart_products_path
+		else
+			@cart_products = @customer.cart_products.all
+			render 'index'
+			flash[:danger] = 'カートに商品を追加できませんでした。'
+		end
+	else
+		@current_product.count += params[:count].to_i
+		@current_product.update(cart_product_params)
+		redirect_to cart_products_path
+	end
 end
 
 def destroy
-	@cart = Cart_product.find(params[:id])
-	cart.destroy
-	render "index"
+	@cart_product.destroy
+	redirect_to cart_products_path
+	flash[:info] = 'カートの商品を取り消しました'
+end
 
-	@carts = Cart_products.all
-	carts.destroy
-	render "index"
+def update
+	if @cart_product.update(cart_product_params)
+		redirect_to cart_products_path
+		flash[:success] = 'カート内の商品を更新しました！'
+	end
+end
+
+def destroy_all
+	@customer.cart_products.destroy_all
+	redirect_to cart_products_path
+	flash[:info] = 'カートを空にしました。'
 
 end
 
-def product_params
-    # params.require(:product).permit(:name, :price)
-    # 税込価格の表示方法
+private
+
+def set_customer
+	@customer = current_customer
 end
 
-def cart_params
-    params.require(:cart_product).permit(:count)
+def set_cart_product
+	@cart_product = CartProduct.find(params[:id])
+end
+
+def cart_product_params
+	params.require(:cart_product).permit(:product_id, :customer_id, :count)
+end
+
 end
 
 
-end

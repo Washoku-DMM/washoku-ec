@@ -1,4 +1,3 @@
-
 class CustomersController < ApplicationController
 
 def show
@@ -23,7 +22,7 @@ def destroy
 end
 
 def customer_params
-    params.require(:customer).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :adress, :phone_number, :email)
+    params.require(:customer).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :email)
 end
 
 

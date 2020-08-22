@@ -13,47 +13,47 @@
         </div>
 
         <div class="field">
-          <%= f.label　"(名)"  %>
+          <%= f.label "(名)"  %>
           <%= f.text_field :first_name, autofocus: true, class: "name" %>
         </div>
 
         <P>フリガナ</P>
         <div class="field">
-          <%= f.label　"(セイ)"  %>
+          <%= f.label "(セイ)"  %>
           <%= f.text_field :family_name_kana, autofocus: true, class: "name" %>
         </div>
 
         <div class="field">
-          <%= f.label　"(メイ)"  %>
+          <%= f.label "(メイ)"  %>
           <%= f.text_field :first_name_kana, autofocus: true, class: "name" %>
         </div>
 
         <div class="field">
-          <%= f.label　"メールアドレス"  %>
+          <%= f.label "メールアドレス"  %>
           <%= f.text_field :email, autofocus: true, class: "email" %>
         </div>
 
         <div class="field">
-          <%= f.label　"郵便番号(ハイフンなし)"  %>
+          <%= f.label "郵便番号(ハイフンなし)"  %>
           <%= f.text_field :postal_code, autofocus: true %>
         </div>
 
         <div class="field">
-          <%= f.label　"住所"  %>
-          <%= f.text_area :adress, autofocus: true %>
+          <%= f.label "住所"  %>
+          <%= f.text_area :address, autofocus: true %>
         </div>
 
         <div class="field">
-          <%= f.label　"電話番号(ハイフンなし)"  %>
+          <%= f.label "電話番号(ハイフンなし)"  %>
           <%= f.text_field :phone_number, autofocus: true %>
         </div>
 
         <div class="actions">
-           <%= f.submit "編集内容を保存する",class: "btn btn-success" %>
+           <%= f.submit "編集内容を保存する",class: "btn btn-primary" %>
         </div>
 
         <div class="actions">
-           <%= f.submit "退会する",class: "btn btn-success" %>
+           <%= f.submit "退会する",class: "btn btn-danger" %>
         </div>
 
       <% end %>

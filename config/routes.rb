@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  namespace :customers do
+  devise_for :customers
+  end
 
   namespace :admins do
     resources :genres, only: [:index, :create, :update, :edit]
@@ -25,7 +28,11 @@ Rails.application.routes.draw do
 
     resources :customers, only: [:show, :edit, :update, :destroy]
 
-    resources :cart_products, only: [:create, :destroy, :index]
+    resources :cart_products, only: [:index, :create, :update, :destroy] do
+      collection do
+          delete 'destroy_all'
+      end
+    end
 
     resources :deliveries, except: [:show]
 
