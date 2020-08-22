@@ -3,6 +3,6 @@ class Product < ApplicationRecord
   belongs_to :genre
 
   def tax_included_price
-  	price * 1.1
+  	(price * 1.1).floor.to_s(:delimited)
   end
 end

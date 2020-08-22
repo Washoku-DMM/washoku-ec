@@ -10,13 +10,13 @@ end
 
 def update
 	@customer = Customer.find(params[:id])
-	customer.update(customer_params)
+	@customer.update(customer_params)
 	render "show"
 end
 
 def destroy
 	@customer = Customer.find(params[:id])
-	customer.destroy
+	@customer.destroy
 	redirect_to "/top"
 
 end
