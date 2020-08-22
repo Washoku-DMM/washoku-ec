@@ -1,5 +1,9 @@
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-<h1>商品詳細</h1> <h4>(全</h4><%= @product.count %> <h4>件</h4>
+
+
+<!--  <%= will_paginate @products %>
+<%= will_paginate %>  -->
+
 
 <% @lists.each do |product| %>
 <%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg'  %>
