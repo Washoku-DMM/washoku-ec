@@ -14,8 +14,7 @@
 	<h4>ジャンル</h4>
 		<%= @genre.name %>
 	<h4>税込価格（税抜価格）</h4>
-	<!-- 小数点以下の表示をなくしたい↓ -->
-		<%=  @product.tax_included_price %>(<%= @product.price %>)円
+		<%= @product.tax_included_price %>(<%= @product.price.to_s(:delimited) %>)円
 	<h4>販売ステータス</h4>
 		<%= @product.is_active %>
 </div>
