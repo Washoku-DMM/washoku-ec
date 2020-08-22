@@ -3,8 +3,14 @@
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
 
 
+<%= will_paginate @products %>
+<%= will_paginate %>
+
+
+
+
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-<h1>商品詳細</h1> <h4>全 <%#= @product.count %>件</h4>
+
 
 <% @products.each do |product| %>
 <%= attachment_image_tag product, :image, :fill,300,300,format:'jpeg'  %>
