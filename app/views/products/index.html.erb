@@ -1,18 +1,16 @@
 <!-- header -->
 <%= render 'admins/header' %>
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-<<<<<<< HEAD
 
 
-<!--  <%= will_paginate @products %>
-<%= will_paginate %>  -->
+<%= will_paginate @products %>
+<%= will_paginate %>
 
-=======
->>>>>>> 7656870ff6cfb9e040d43c59da3bb6e9d560f91e
+
 
 
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-<h1>商品詳細</h1> <h4>全 <%#= @product.count %>件</h4>
+
 
 <% @products.each do |product| %>
 <%= attachment_image_tag product, :image, :fill,300,300,format:'jpeg'  %>
