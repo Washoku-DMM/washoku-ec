@@ -1,6 +1,7 @@
 <!-- header -->
 <%= render 'admins/header' %>
 <!-- header -->
+
 <div class="body title">
   <h2>注文履歴一覧</h2>
 </div>
@@ -14,17 +15,17 @@
 	      <th>注文個数</th>
 	      <th>注文ステータス</th>
         </tr>
-  　</thead>
+  </thead>
     <tbody>
       <!-- ↓複数の変数を使うのでzipメゾットを使うかも -->
       <% @orders.each do |order| %>
-       　<tr>
-         　<td><%= link_to order.create_at, admins_order_path(order.id)%></td>
-         　<td><%= customer.name %></td>
+       <tr>
+         <td><%= link_to order.create_at, admins_order_path(order.id)%></td>
+         <td><%= customer.name %></td>
          <!-- ↑order.customer.name? -->
-         　<td><%= order_product.count %></td>
-         　<td><%= order_product.product_status %></td>
-       　</tr>
+         <td><%= order_product.count %></td>
+         <td><%= order_product.product_status %></td>
+       </tr>
       <% end %>
     </tbody>
   </table>

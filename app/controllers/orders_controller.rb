@@ -2,7 +2,7 @@
 class OrdersController < ApplicationController
 
    def index
-   	   @orders = Order.all(@user)
+   	   @orders = Order.all
    	   @user = current_user
    end
 
@@ -30,13 +30,13 @@ class OrdersController < ApplicationController
 	   		if params[:back]
 	   			format.html { render :new }
 	   		elsif @order.save
-	   			format.html { redirect_to @,}
+	   			format.html { redirect_to orders_confirm,location: @order}
 	   			format.json { render :show, status: :created, location: @order }
 	   		else
 	   			format.html { render :new }
 	   			format.json { render json: @order.errors, status: :unprocessable_entity }
 	   		end
-	   	end
+         end
    end
 
    def ordercomplete

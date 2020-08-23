@@ -8,7 +8,7 @@ end
 
 def create
 	@delivery = Delivery.new(delivery_params)
-	delivery.save
+	@delivery.save
 	redirect_to deliveries_path(@delivery)
 end
 
@@ -18,7 +18,7 @@ end
 
 def update
 	@delivery = Delivery.find(params[:id])
-	delivery.update(delivery_params)
+	@delivery.update(delivery_params)
 	redirect_to deliveries_path(@delivery)
 end
 
