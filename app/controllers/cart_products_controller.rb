@@ -1,6 +1,6 @@
 class CartProductsController < ApplicationController
 
-  before_action :authenticate_customer!
+  before_action :authenticate_customers_customer!
   before_action :set_cart_product, only: [:show, :update, :destroy, :edit]
   before_action :set_customer
 
@@ -9,7 +9,7 @@ def index
 end
 
 def create
-	@cart_product = current_customer.cart_items.build(cart_product_params)
+	@cart_product = current_customers_customer.cart_items.build(cart_product_params)
 	@current_product = CartProduct.find_by(product_id: @cart_product.product_id, customer_id: @cart_product.customer_id)
 	if @current_product.nill?
 		if @cart_product.save
@@ -50,7 +50,7 @@ end
 private
 
 def set_customer
-	@customer = current_customer
+	@customer = current_customers_customer
 end
 
 def set_cart_product
