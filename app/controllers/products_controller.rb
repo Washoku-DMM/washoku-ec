@@ -21,18 +21,17 @@ def index
 	 @products = Product.all.paginate(page: params[:page], per_page: 8)
 	 end
 	# お手本コード参照バージョン
-
 	@user = current_user
 
   # ２０件毎に表示したい場合
   # @users = User.paginate(page: params[:page], per_page: 20)
-
+  end
 
 end
-end
+
+
 def show
 	@product =Product.find(params[:id])
-	@user = User.find(pramas[:id])
 end
 
 # def destroy
@@ -41,3 +40,12 @@ end
 # 	rende '/cart_products'
 # end
 # あとで話し合う
+
+  private
+  def product_params
+    params.require(:product).permit(:name, :price, :is_active, :genre_id, :product_introduction, :image)
+  end
+
+
+end
+

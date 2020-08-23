@@ -1,5 +1,5 @@
 <!-- header -->
-<%= render 'admins/header' %>
+<%= render "admins/header", customer: @customer %>
 <!-- header -->
 
 <div class="body title">
@@ -19,7 +19,9 @@
     <% @customers.each do |customer| %>
     <tr>
       <td><%= customer.id %></td>
-      <td><%= customer.name %></td>
+      <td><%= link_to admins_customer_path(customer) do %>
+        <%= customer.family_name %><%= customer.first_name %>
+        <% end %></td>
       <td><%= customer.email %></td>
       <td><%= customer.is_deleted %></td>
     </tr>
