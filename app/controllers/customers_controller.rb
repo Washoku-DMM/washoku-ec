@@ -4,6 +4,20 @@ def show
 	@customer = Customer.find(params[:id])
 end
 
+def withdrawl
+	@customer = Customer.find(params[:id])
+end
+
+def hide
+        @customer = Customer.find(current_customers_customer.id)
+        #is_deletedカラムにフラグを立てる(defaultはfalse)
+        @customer.update(is_deleted: true)
+        #ログアウトさせる
+        reset_session
+        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+        redirect_to root_path
+end
+
 def edit
 	@customer = Customer.find(params[:id])
 end
@@ -11,7 +25,7 @@ end
 def update
 	@customer = Customer.find(params[:id])
 	@customer.update(customer_params)
-	render "show"
+	redirect_to customer_path(@customer)
 end
 
 def destroy

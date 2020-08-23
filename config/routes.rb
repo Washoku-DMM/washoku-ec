@@ -26,7 +26,14 @@ Rails.application.routes.draw do
 
     resources :products
 
-    resources :customers, only: [:show, :edit, :update, :destroy]
+    resources :customers, only: [:show, :edit, :update, :destroy] do
+      member do
+            get "withdrawl"
+            patch "hide"
+        end
+    end
+
+    get 'customers/hide'
 
     resources :cart_products, only: [:index, :create, :update, :destroy] do
       collection do
