@@ -22,8 +22,6 @@ def index
 	 end
 	# お手本コード参照バージョン
 
-
-
 	@user = current_user
 
   # ２０件毎に表示したい場合
