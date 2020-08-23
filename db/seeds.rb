@@ -80,6 +80,7 @@ Delivery.create!(
   [
     {
       id: 1,
+      customer_id: 1,
       name: '稲継亜矢子',
       postal_code: '1111111',
       address: '月川県岩青山町四南寺2-15',
@@ -87,6 +88,7 @@ Delivery.create!(
 
     {
       id: 2,
+      customer_id: 2,
       name: '鈴鹿由美子',
       postal_code: '2222222',
       address: '細野県城見市世史が丘3-1-7',
@@ -94,6 +96,7 @@ Delivery.create!(
 
     {
       id: 3,
+      customer_id: 3,
       name: '関沢智恵美',
       postal_code: '3333333',
       address: '赤田県初山市十越智町6-12',
@@ -101,6 +104,7 @@ Delivery.create!(
 
     {
       id: 4,
+      customer_id: 4,
       name: '巻譲',
       postal_code: '4444444',
       address: '根野県羽島市後目台8-12',
@@ -108,6 +112,7 @@ Delivery.create!(
 
     {
       id: 5,
+      customer_id: 5,
       name: '岡崎弥生',
       postal_code: '5555555',
       address: '古岡県紫波市刈唯山3-5-2',
@@ -203,51 +208,6 @@ Order.create!(
   ]
   )
 
-OrderProduct.create!(
-  [
-    {
-      id: 1,
-      count: 4,
-      price: 270,
-      product_status: 2,
-    },
-
-    {
-      id: 2,
-      count: 6,
-      price: 230,
-      product_status: 1,
-    },
-
-    {
-      id: 3,
-      count: 2,
-      price: 260,
-      product_status: 0,
-    },
-
-    {
-      id: 4,
-      count: 6,
-      price: 180,
-      product_status: 1,
-    },
-
-    {
-      id: 5,
-      count: 8,
-      price: 370,
-      product_status: 1,
-    },
-
-    {
-      id: 6,
-      count: 10,
-      price: 160,
-      product_status: 2,
-    },
-  ]
-  )
 
 Product.create!(
   [
@@ -349,6 +309,64 @@ Product.create!(
       genre_id: 5,
       price: 150,
       is_active: true,
+    },
+  ]
+  )
+
+OrderProduct.create!(
+  [
+    {
+      id: 1,
+      order_id: 1,
+      product_id: 10,
+      count: 4,
+      price: 270,
+      product_status: 2,
+    },
+
+    {
+      id: 2,
+      order_id: 1,
+      product_id: 7,
+      count: 6,
+      price: 230,
+      product_status: 1,
+    },
+
+    {
+      id: 3,
+      order_id: 2,
+      product_id: 2,
+      count: 2,
+      price: 260,
+      product_status: 0,
+    },
+
+    {
+      id: 4,
+      order_id: 3,
+      product_id: 3,
+      count: 6,
+      price: 180,
+      product_status: 1,
+    },
+
+    {
+      id: 5,
+      order_id: 4,
+      product_id: 4,
+      count: 8,
+      price: 370,
+      product_status: 1,
+    },
+
+    {
+      id: 6,
+      order_id: 5,
+      product_id: 5,
+      count: 10,
+      price: 160,
+      product_status: 2,
     },
   ]
   )
