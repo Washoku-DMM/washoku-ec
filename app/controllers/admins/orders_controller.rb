@@ -9,9 +9,9 @@ class Admins::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @custmer = Customer.find(params[:id])
-    @delivery = Delivery.find(params[:id])
-    @product = Product.find(params[:id])
+    # @custmer = Customer.find(params[:id])
+    # @delivery = Delivery.find(params[:id])
+    # @product = Product.find(params[:id])
   end
 
   def update

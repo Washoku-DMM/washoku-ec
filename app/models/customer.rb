@@ -12,5 +12,6 @@ class Customer < ApplicationRecord
     end
     #is_activeが有効の場合は有効会員(ログイン可能)
 
+  has_many :orders, dependent: :destroy
 
 end

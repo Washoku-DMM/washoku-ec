@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <td>フリガナ</td>
-          <td><%= f.text_field :family_name_kana %><%= f.text_field :family_name_kana %></td>
+          <td><%= f.text_field :family_name_kana %><%= f.text_field :first_name_kana %></td>
         </tr>
         <tr>
           <td>郵便番号</td>
@@ -39,12 +39,12 @@
         </tr>
         <tr>
           <td>メールアドレス</td>
-          <td><<%= f.text_field :email %>/td>
+          <td><%= f.text_field :email %></td>
         </tr>
         <tr>
           <td>会員ステータス</td>
-          <td><%= f.radio_button :status, :enabled, checked: "checked" %>有効
-            <%= f.radio_button :status, :disabled, checked: "checked" %>無効</td>
+            <label><%= f.radio_button :is_active, "true" %>有効</label>
+            <label><%= f.radio_button :is_active, "false" %>無効</label>
         </tr>
         <tr><%= f.submit "変更を保存する" %></tr>
       <% end %>
