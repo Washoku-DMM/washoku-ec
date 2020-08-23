@@ -5,6 +5,77 @@ Admin.create!(
   password_confirmation: 'adminuser'
   )
 
+
+Customer.create!(
+  [
+    {
+      id: 1,
+      email: '1@1',
+      family_name: '長岡', family_name_kana: 'ナガオカ',
+      first_name: '聡美',   first_name_kana: 'サトミ',
+      postal_code: '1111111',
+      address: '北岡県乙西川市馬城寺2-6-1',
+      phone_number: '0110111111',
+      is_deleted: true,
+      password: '111111',
+      password_confirmation: '111111',
+    },
+
+    {
+      id: 2,
+      email: '2@2',
+      family_name: '野崎', family_name_kana: 'ノザキ',
+      first_name: '健吾',   first_name_kana: 'ケンゴ',
+      postal_code: '2222222',
+      address: '鳥川県盤上山市升沖ヶ丘1-15',
+      phone_number: '0220222222',
+      is_deleted: true,
+      password: '222222',
+      password_confirmation: '222222',
+    },
+
+    {
+      id: 3,
+      email: '3@3',
+      family_name: '妹尾', family_name_kana: 'セオ',
+      first_name: '千代美',   first_name_kana: 'チヨミ',
+      postal_code: '3333333',
+      address: '仁田県那珂和町山巻学園3-2',
+      phone_number: '0333033333',
+      is_deleted: true,
+      password: '333333',
+      password_confirmation: '333333',
+    },
+
+    {
+      id: 4,
+      email: '4@4',
+      family_name: '塚越', family_name_kana: 'ツカゴシ',
+      first_name: '貴美',   first_name_kana: 'タカミ',
+      postal_code: '4444444',
+      address: '笠川県冬田市志林川町5-2-7',
+      phone_number: '0444044444',
+      is_deleted: true,
+      password: '444444',
+      password_confirmation: '444444',
+    },
+
+    {
+      id: 5,
+      email: '5@5',
+      family_name: '鎌田', family_name_kana: 'カマタ',
+      first_name: '幸宏',   first_name_kana: 'ユキヒロ',
+      postal_code: '5555555',
+      address: '早田県響山市大字威初2-16',
+      phone_number: '0555055555',
+      is_deleted: true,
+      password: '555555',
+      password_confirmation: '555555',
+    },
+
+  ]
+  )
+
 Delivery.create!(
   [
     {
@@ -82,6 +153,7 @@ Order.create!(
   [
     {
       id: 1,
+      customer_id: 1,
       name: '稲継亜矢子',
       postal_code: '1111111',
       address: '月川県岩青山町四南寺2-15',
@@ -91,6 +163,7 @@ Order.create!(
 
     {
       id: 2,
+      customer_id: 2,
       name: '鈴鹿由美子',
       postal_code: '2222222',
       address: '細野県城見市世史が丘3-1-7',
@@ -100,6 +173,7 @@ Order.create!(
 
     {
       id: 3,
+      customer_id: 3,
       name: '関沢智恵美',
       postal_code: '3333333',
       address: '赤田県初山市十越智町6-12',
@@ -110,6 +184,7 @@ Order.create!(
     {
       id: 4,
       name: '巻譲',
+      customer_id: 4,
       postal_code: '4444444',
       address: '根野県羽島市後目台8-12',
       payment_methods: false,
@@ -118,6 +193,7 @@ Order.create!(
 
     {
       id: 5,
+      customer_id: 5,
       name: '岡崎弥生',
       postal_code: '5555555',
       address: '古岡県紫波市刈唯山3-5-2',
@@ -274,75 +350,5 @@ Product.create!(
       price: 150,
       is_active: true,
     },
-  ]
-  )
-
-Customer.create!(
-  [
-    {
-      id: 1,
-      email: '1@1',
-      family_name: '長岡', family_name_kana: 'ナガオカ',
-      first_name: '聡美',   first_name_kana: 'サトミ',
-      postal_code: '1111111',
-      address: '北岡県乙西川市馬城寺2-6-1',
-      phone_number: '0110111111',
-      is_deleted: true,
-      password: '111111',
-      password_confirmation: '111111',
-    },
-
-    {
-      id: 2,
-      email: '2@2',
-      family_name: '野崎', family_name_kana: 'ノザキ',
-      first_name: '健吾',   first_name_kana: 'ケンゴ',
-      postal_code: '2222222',
-      address: '鳥川県盤上山市升沖ヶ丘1-15',
-      phone_number: '0220222222',
-      is_deleted: true,
-      password: '222222',
-      password_confirmation: '222222',
-    },
-
-    {
-      id: 3,
-      email: '3@3',
-      family_name: '妹尾', family_name_kana: 'セオ',
-      first_name: '千代美',   first_name_kana: 'チヨミ',
-      postal_code: '3333333',
-      address: '仁田県那珂和町山巻学園3-2',
-      phone_number: '0333033333',
-      is_deleted: true,
-      password: '333333',
-      password_confirmation: '333333',
-    },
-
-    {
-      id: 4,
-      email: '4@4',
-      family_name: '塚越', family_name_kana: 'ツカゴシ',
-      first_name: '貴美',   first_name_kana: 'タカミ',
-      postal_code: '4444444',
-      address: '笠川県冬田市志林川町5-2-7',
-      phone_number: '0444044444',
-      is_deleted: true,
-      password: '444444',
-      password_confirmation: '444444',
-    },
-
-    {
-      id: 5,
-      email: '5@5',
-      family_name: '鎌田', family_name_kana: 'カマタ',
-      first_name: '幸宏',   first_name_kana: 'ユキヒロ',
-      postal_code: '5555555',
-      address: '早田県響山市大字威初2-16',
-      phone_number: '0555055555',
-      is_deleted: true,
-      password: '555555',
-      password_confirmation: '555555',
-    },
-
   ]
   )
