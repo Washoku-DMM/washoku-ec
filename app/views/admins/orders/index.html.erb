@@ -20,9 +20,9 @@
       <!-- ↓複数の変数を使うのでzipメゾットを使うかも -->
       <% @orders.each do |order| %>
        <tr>
-         <td><%= link_to order.created_at, admins_order_path(order_id)%></td>
-         <td><%= order.customer.name %></td>
-         <td><%= order_product.count %></td>
+         <td><%= link_to order.created_at, admins_order_path(order)%></td>
+         <td><%= order.customer.family_name %><%= order.customer.first_name %></td>
+         <td><%= order.order_product.count %></td>
          <td><%= order_product.product_status %></td>
        </tr>
       <% end %>

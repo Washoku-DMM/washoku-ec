@@ -15,4 +15,4 @@
 <!-- 商品詳細で画面に収まらなかったものを横にスクロールさせて表示させる？
 一覧の下にページ数を表す点が4つある -->
 
-<%= will_paginate @products %>
+<%= will_paginate @products, previous_label: '&lt 前へ', next_label: '次へ &gt' %>

@@ -34,6 +34,5 @@ private
     params.require(:genre).permit(:name, :is_active)
   end
 
-
 end
 
