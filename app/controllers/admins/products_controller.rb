@@ -13,6 +13,9 @@ class Admins::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @genre = @product.genre
+    # @order_products = @customer.product(params[:id])
+    # @customer = customer.find(params[:id])
+
   end
 
   def create
@@ -33,7 +36,7 @@ class Admins::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :is_active, :genre_id, :product_introduction, :image)
+    params.require(:product).permit(:name, :price, :is_active, :genre_id, :product_introduction, :image, :product_status)
   end
   def customer_params
     params.require(:customer).permit(:family_name, :first_name, :email, :is_deleted, :postal_code, :address, :phone_number)
