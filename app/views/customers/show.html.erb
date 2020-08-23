@@ -4,32 +4,32 @@
 
 <%= link_to "編集する", edit_customer_path(@customer), class: "btn-sm btn-success edit_customer_#{@customer.id}" %>
 
-<%= link_to "パスワードを変更する", new_customer_password_path(@customer), class: "btn-sm btn-success new_user_password_#{@customer.id}" %>
+<%= link_to "パスワードを変更する",  edit_customers_customer_password_path(@customer), class: "btn-sm btn-success new_user_password_#{@customer.id}" %>
 
 <table>
 		<tr>
 			<th>氏名</th>
-			<td><%= customer.family_name %><%= customer.first_name %></td>
+			<td><%= @customer.family_name %><%= @customer.first_name %></td>
 		</tr>
 		<tr>
 			<th>カナ</th>
-			<td><%= customer.family_name_kana %><%= customer.first_name_kana %></td>
+			<td><%= @customer.family_name_kana %><%= @customer.first_name_kana %></td>
 		</tr>
 		<tr>
 			<th>郵便番号</th>
-			<td><%= customer.postal_code %></td>
+			<td><%= @customer.postal_code %></td>
 		</tr>
 		<tr>
 			<th>住所</th>
-			<td><%= customer.address %></td>
+			<td><%= @customer.address %></td>
 		</tr>
 		<tr>
 			<th>電話番号</th>
-			<td><%= customer.phone_number %></td>
+			<td><%= @customer.phone_number %></td>
 		</tr>
 		<tr>
 			<th>メールアドレス</th>
-			<td><%= customer.phone_number %></td>
+			<td><%= @customer.email %></td>
 		</tr>
 </table>
 

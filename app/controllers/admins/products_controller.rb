@@ -35,6 +35,9 @@ class Admins::ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :price, :is_active, :genre_id, :product_introduction, :image)
   end
+  def customer_params
+    params.require(:customer).permit(:family_name, :first_name, :email, :is_deleted, :postal_code, :address, :phone_number)
+  end
 
 
 end

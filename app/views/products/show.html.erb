@@ -7,11 +7,11 @@
 <%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg'  %>
 	<h1><%= @product.name %></h1>
 	<h4><%= @product.product_introduction %></h4>
-	<h4>¥</h4><%= @product.price %> <h4>（税込）</h4>
+	<h4>¥</h4><%= @product.tax_included_price %> <h4>（税込）</h4>
 
 
-  <%= form_for @count do |f| %>
-     <%= f.select :counts, options_for_select((1..99).to_a), include_blank: "個数選択" %>
+  <%= form_with model: @product do |f| %>
+     <%= f.select :count, options_for_select((1..99).to_a), include_blank: "個数選択" %>
 
-     <%= f.submit 'カートに入れる'%>
+     <%= f.submit 'カートに入れる' %>
   <% end %>
