@@ -10,8 +10,12 @@ end
 
 def update
 	@customer = Customer.find(params[:id])
-	@customer.update(customer_params)
-	render "show"
+	if @customer.update(customer_params)
+	   redirect_to customer_path(@customer)
+   else
+    @customer = Customer.find(params[:id])
+    render 'edit'
+  end
 end
 
 def destroy
