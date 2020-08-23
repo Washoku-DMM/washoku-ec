@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-	enum is_deleted: {Available: true, Invalid: false}
+	enum is_deleted: {Available: false, Invalid: true}
     #有効会員はtrue、退会済み会員はfalse
 
     def active_for_authentication?

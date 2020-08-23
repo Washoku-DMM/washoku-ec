@@ -27,8 +27,6 @@ def index
   # @users = User.paginate(page: params[:page], per_page: 20)
   end
 
-end
-
 
 def show
 	@product =Product.find(params[:id])
