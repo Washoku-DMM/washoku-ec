@@ -1,14 +1,11 @@
 <%#= image_tag 'logo.png' %>
 
-<<<<<<< HEAD
 <%# if user_signed_in? %>
   <%#= if @user == user.customer %>
   <!-- もしcustomerであれば名前を表示できるようにしたい　if -->
 <header class=“nav navbar-nav navbar-right”>
-=======
 <% if customers_customer_signed_in? %>
 <header>
->>>>>>> develop
 
   <p>ようこそ、<%= current_customers_customer.family_name %><%= current_customers_customer.first_name %>さん！</p>
   <li class="aikonn">
