@@ -19,6 +19,7 @@ class Customer < ApplicationRecord
   has_many :cart_products, dependent: :destroy
   has_many :products, through: :cart_products
 
+
   validates :email, presence: true, uniqueness: true
   validates :family_name, presence: true
   validates :first_name, presence: true

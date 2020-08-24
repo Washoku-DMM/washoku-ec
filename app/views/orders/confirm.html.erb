@@ -4,6 +4,8 @@
 
 <h3>注文情報確認</h3>
 
+<%= form_with(model: @order, local: true) do |f| %>
+
  <table>
 
  	<thead>
@@ -15,17 +17,20 @@
  		</tr>
  	</thead>
 
+<% sum_all = 0 %>
+<% @cart_products.each do |cart_product| %>
  	<tbody>
- 		<tr>
- 			<% @carts.each do |cart| %>
- 			<td><%= cart.product.image %><%= cart.product.name %></td>
- 			<td><%= ((cart.product.price)*1.1) %></td>
- 			<td><%= cart.count %></td>
- 			<td><%= ((cart.product.price)*1.1)*(cart.count) %></td>
-		</tr>
+ 			<tr>
+ 			<td>
+ 				<%= attachment_image_tag(cart_product.product, :image, :fill, 100, 100, fallback: "washoku.jpg", size: '100x100') %>
+ 				<%= cart_product.product.image %><%= cart_product.product.name %></td>
+ 			<td><%= ((cart_product.product.price)*1.1) %></td>
+ 			<td><%= cart_product.count %></td>
+ 			<td><%= ((cart_product.product.price)*1.1)*(cart_product.count) %></td>
+ 			</tr>
  	</tbody>
-
- </table>
+<% end %>
+</table>
 
 
 <%= form_for @order do |f| %>
@@ -39,20 +44,24 @@
 		</tr>
 		<tr>
 			<th>合計金額</th>
-			<td>@order</td>
+			<td><% sum.to_i %></td>
 		</tr>
 		<tr>
 			<th>請求金額</th>
-			<td><%= @order.billing_amount %></td>
+			<td>
+				<% billling_amount = sum + @order.shipping_fee.to_i %>
+          		<%= billling_amount.to_i %>円
+
+			</td>
 		</tr>
 </table>
 
 
 <h3>支払方法</h3>
-<%=　@order.payment_methods　%>
+<%= @order.payment_methods %>
 
 <h3>お届け先</h3>
-<%=　@order.address　%>
+<%= @order.address %>
 
 
   <div class="actions">

@@ -21,6 +21,8 @@
       <%= f.text_field :name, autofocus: true, class: "name" %>
     </div>
 
+    <%= f.hidden_field :customer_id, value: @customer.id  %>
+
     <div class="actions">
 			 <%= f.submit "登録する",class: "btn btn-success" %>
 	</div>
