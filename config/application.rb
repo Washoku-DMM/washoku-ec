@@ -19,3 +19,9 @@ module WashokuEc
     # the framework and any gems in your application.
   end
 end
+
+module Hoge
+  class Application < Rails::Application
+    config.time_zone = 'Tokyo'
+  end
+end
