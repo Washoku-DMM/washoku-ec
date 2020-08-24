@@ -1,4 +1,5 @@
 class Admins::OrdersController < ApplicationController
+  before_action :authenticate_admins_admin!, only: [:update, :index, :show]
 
 
   def index
@@ -10,19 +11,20 @@ class Admins::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @orders = Order.all
-    # @custmer = Customer.find(params[:id])
     @delivery = Delivery.find(params[:id])
-    # @product = Product.find(params[:id])
-    @order_products = OrderProduct.all
+    @order_products = @order.order_products
   end
 
   def update
-    if @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to admins_orders_path(@order)
-      else @delivery = Delivery.find(params[:id])
-    @delivery.update(order_params)
-    redirect_to admins_orders_path(@order)
+    @order = Order.find(params[:id])
+    if @order.update(order_params)
+        redirect_to admins_orders_path(@order), notice: "更新完了"
+    else
+    @order = Order.find(params[:id])
+    @orders = Order.all
+    @delivery = Delivery.find(params[:id])
+    @order_products = @order.order_products
+      render "show"
     end
   end
 

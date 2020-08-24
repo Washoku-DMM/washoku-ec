@@ -1,14 +1,14 @@
 class Admins::OrderProductsController < ApplicationController
+  before_action :authenticate_admins_admin!, only: [:update]
 
   def update
-    @order_product = OrderProducts.find(product_id)
-    @order_product.save
-    @order_products = @customer.product
-    redirect_to admins_product_path(product_id)
+    @order_product = OrderProduct.find(params[:id])
+    @order_product.update(order_product_params)
+    redirect_back(fallback_location: root_path), notice: "更新完了"
   end
 
   private
-    def product_params
+    def order_product_params
       params.require(:order_product).permit(:price, :count, :product_status)
     end
   def customer_params
