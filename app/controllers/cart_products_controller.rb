@@ -5,13 +5,13 @@ class CartProductsController < ApplicationController
   before_action :set_customer
 
 def index
-	@cart_products = @customer.cart_products.all
+	@cart_products = current_customers_customer.cart_products.all
 end
 
 def create
-	@cart_product = current_customers_customer.cart_items.build(cart_product_params)
+	@cart_product = current_customers_customer.cart_products.build(cart_product_params)
 	@current_product = CartProduct.find_by(product_id: @cart_product.product_id, customer_id: @cart_product.customer_id)
-	if @current_product.nill?
+	if @current_product.nil?
 		if @cart_product.save
 			flash[:success] = 'カートに商品が追加されました！'
 			redirect_to cart_products_path
@@ -45,6 +45,10 @@ def destroy_all
 	redirect_to cart_products_path
 	flash[:info] = 'カートを空にしました。'
 
+end
+
+def total_price
+	cart_products.to_a.sum { |cart_product| cart_product.total_price }
 end
 
 private

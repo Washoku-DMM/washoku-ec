@@ -24,6 +24,7 @@ end
 
 def show
 	@product =Product.find(params[:id])
+	@cart_product = @product.cart_products.build
 end
 
 # def destroy
