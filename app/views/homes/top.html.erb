@@ -11,6 +11,22 @@
 		購入には会員登録が必要になります。
 	</p>
 
+
+
+<% @rank_ptoducts.each do |product| %>
+  <%= attachment_image_tag @product, :image, size: '200x200',format: "jpeg",fallback: "washoku.jpg" %>
+  <p><%= rank_ptoduct.name %></p>
+  <p><%= rank_ptoduct.price %>円</p>
+<% end %>
+
+
+
+
+
+
+
+
+
 	<h2>オススメ商品</h2>
 	<!-- each文で表示 -->
 	 <div class="">

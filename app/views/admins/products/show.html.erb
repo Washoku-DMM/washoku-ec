@@ -6,7 +6,7 @@
 </div>
 
 <div class="body">
-	<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg'  %>
+	<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
 	<h4>商品名</h4>
 		<%= @product.name %>
 	<h4>商品説明</h4>
