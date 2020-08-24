@@ -1,4 +1,5 @@
 class Admins::CustomersController < ApplicationController
+  before_action :authenticate_admins_admin!, only: [:edit, :update, :index, :show]
 
   def index
     @customers = Customer.all

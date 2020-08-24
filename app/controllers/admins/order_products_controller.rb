@@ -1,9 +1,10 @@
 class Admins::OrderProductsController < ApplicationController
+  before_action :authenticate_admins_admin!, only: [:update]
 
   def update
     @order_product = OrderProduct.find(params[:id])
     @order_product.update(order_product_params)
-    redirect_to admins_product_path(@order_product.product)
+    redirect_back(fallback_location: root_path)
   end
 
   private

@@ -1,4 +1,5 @@
 class Admins::GenresController < ApplicationController
+  before_action :authenticate_admins_admin!, only: [:index, :create, :edit, :update]
 
   def index
     @genre = Genre.new
