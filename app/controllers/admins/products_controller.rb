@@ -22,7 +22,10 @@ class Admins::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    redirect_to admins_products_path
+    redirect_to admins_products_path, notice: "追加完了"
+  else
+    @product = Product.new
+    render "new"
   end
 
   def edit
@@ -32,7 +35,7 @@ class Admins::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-       redirect_to admins_products_path
+       redirect_to admins_products_path, notice: "更新完了"
      else
       @product = Product.find(params[:id])
       render "edit"
