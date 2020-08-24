@@ -22,8 +22,8 @@
        <tr>
          <td><%= link_to order.created_at, admins_order_path(order)%></td>
          <td><%= order.customer.family_name %><%= order.customer.first_name %></td>
-         <td><%= order.order_product.count %></td>
-         <td><%= order_product.product_status %></td>
+         <td><%= order.order_products.count %></td>
+         <td><%= order.order_status %></td>
        </tr>
       <% end %>
     </tbody>

@@ -4,8 +4,9 @@
 
 <h2>注文履歴詳細</h2>
 
+<%= form_with model: @order, url: admins_order_path do |f| %>
 	<h4>購入者</h4>
-		<%= @customer.name %>
+		<%= @order.customer.family_name %><%= @order.customer.first_name %>
 	<h4>配送先</h4>
 		〒<%= @delivery.postal_code %><%= @delivery.address %><br>
 		<%= @delivery.name %>
@@ -13,8 +14,10 @@
 		<%= @order.payment_methods %>
 	<h4>注文ステータス</h4>
 		<!-- ↓作成途中 -->
-        <%= f.select %>
-		<%= f.submit '更新'　%>
+		<%= f.label :order_status, '注文ステータス' %>
+        <%= f.select :order_status, {'入金待ち': 1, '入金確認': 2, '製作中': 3, '発送準備中': 4, '発送済み': 5} %>
+		<%= f.submit "更新" %>
+		<% end %>
 
 	<table>
 	    <thead>
@@ -29,19 +32,17 @@
 	  　</thead>
 	    <tbody>
 
-
-	      <!-- ↓複数の変数を使うのでzipメゾットを使うかも -->
-	      <!-- # <% @orders.each do |order| %> -->
-	      <%# @orders.each do |order| %>
+			<%= form_with model: @order_products, url: admins_order_product_path do |f| %>
+	      <% @order_products.each do |op| %>
 	       　<tr>
-	         　<td><%= order.name %></td>
-	         　<td><%= product.price *1.1 %></td>
-	         　<td><%= order_product.count %></td>
-	         　<td><%= product.price *1.1 *order_product.count %></td>
-	           <td><!-- ↓作成途中 -->
-                  <%= f.select %></td>
-	           <td><%=f.submit '更新'　%></td>
+	         　<td><%= op.product.name %></td>
+	         　<td><%= op.product.tax_included_price %></td>
+	         　<td><%= op.count %></td>
+	         　<td><%= op.product.tax_included_price.to_i * op.count.to_i %></td>
+	           <td><%= f.select :product_status, {'着手不可': 1, '製作待ち': 2, '製作中': 3, '製作完了': 4} %></td>
+	           <td><%= f.submit "更新" %></td>
 	       　</tr>
+	       <% end %>
 	      <% end %>
 	    </tbody>
 	</table>
