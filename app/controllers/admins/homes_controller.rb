@@ -1,5 +1,5 @@
 class Admins::HomesController < ApplicationController
-  @customer = Customer.find(params[:id])
+  # @customer = Customer.find(params[:id])
     private
 
   def customer_params

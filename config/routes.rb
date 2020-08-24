@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :products
+    resources :order_products, only: [:update]
     devise_for :admins
     get 'homes/top'
   end
@@ -26,7 +27,14 @@ Rails.application.routes.draw do
 
     resources :products
 
-    resources :customers, only: [:show, :edit, :update, :destroy]
+    resources :customers, only: [:show, :edit, :update] do
+      member do
+            get "withdrawl"
+            patch "hide"
+        end
+    end
+
+    get 'customers/hide'
 
     resources :cart_products, only: [:index, :create, :update, :destroy] do
       collection do

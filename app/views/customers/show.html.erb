@@ -4,7 +4,7 @@
 
 <%= link_to "編集する", edit_customer_path(@customer), class: "btn-sm btn-success edit_customer_#{@customer.id}" %>
 
-<%= link_to "パスワードを変更する",  edit_customers_customer_password_path(@customer), class: "btn-sm btn-success new_user_password_#{@customer.id}" %>
+<%= link_to "パスワードを変更する",  new_customers_customer_password_path, class: "btn-sm btn-success new_user_password_#{@customer.id}" %>
 
 <table>
 		<tr>

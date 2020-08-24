@@ -4,7 +4,7 @@
 
 <h2>商品編集</h2>
 
-<%= form_with model: @product do |f| %>
+<%= form_with model: @product, url: admins_product_path do |f| %>
 
 <%= f.attachment_field :image %>
 
@@ -21,7 +21,7 @@
 <%= f.text_field :price %>円
 
 <h4>販売ステータス</h4>
-<%= f.select :product_id, Product.all.map{ |product| [product.is_active, product.id]} %>
+<%= f.select :is_active, [['販売中', true], ['売切れ', false]] %>
 
 
 <%= f.submit "変更を保存" %>

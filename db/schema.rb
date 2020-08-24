@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_061250) do
+ActiveRecord::Schema.define(version: 2020_08_23_083527) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 2020_08_23_061250) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "carts", force: :cascade do |t|
+  create_table "cart_products", force: :cascade do |t|
     t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
+    t.integer "customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -43,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_061250) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_061250) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -71,6 +74,9 @@ ActiveRecord::Schema.define(version: 2020_08_23_061250) do
     t.integer "product_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.integer "order_id"
+    t.integer "product_id"
   end
 
   create_table "orders", force: :cascade do |t|

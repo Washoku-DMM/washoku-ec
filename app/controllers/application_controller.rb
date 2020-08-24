@@ -1,16 +1,13 @@
 class ApplicationController < ActionController::Base
-  def after_admins_admins_sign_in_path_for(resource)
+  def after_sign_in_path_for(resource)
+case resource
+  when Admin
     admins_homes_top_path
-  end
-
-  def after_customers_customers_sign_in_path_for(resource)
+  when Customer
     homes_top_path
   end
+end
 
-  def price_include_tax(price)
-	price = price * 1.1
-	price.floor
-  end
 
   #カラム追加
   before_action :configure_permitted_parameters, if: :devise_controller?

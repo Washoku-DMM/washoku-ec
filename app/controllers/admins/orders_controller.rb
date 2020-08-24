@@ -9,15 +9,21 @@ class Admins::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @orders = Order.all
     # @custmer = Customer.find(params[:id])
-    # @delivery = Delivery.find(params[:id])
+    @delivery = Delivery.find(params[:id])
     # @product = Product.find(params[:id])
+    @order_products = @order.order_products
   end
 
   def update
-    @order = Order.find(params[:id])
+    if @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_to admin_order_path(order.id)
+    redirect_to admins_orders_path(@order)
+      else @delivery = Delivery.find(params[:id])
+    @delivery.update(order_params)
+    redirect_to admins_orders_path(@order)
+    end
   end
 
   private
