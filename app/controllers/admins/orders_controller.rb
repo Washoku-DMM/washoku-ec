@@ -13,7 +13,7 @@ class Admins::OrdersController < ApplicationController
     # @custmer = Customer.find(params[:id])
     @delivery = Delivery.find(params[:id])
     # @product = Product.find(params[:id])
-    @order_products = OrderProduct.all
+    @order_products = @order.order_products
   end
 
   def update

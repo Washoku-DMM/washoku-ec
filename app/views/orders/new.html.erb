@@ -7,18 +7,8 @@
 <%= form_with(model: order, url: {action: 'confirm'}) do |f| %>
 
 <h3>支払方法</h3>
-
-<label>
-<%= f.radio_button :payment_methods, :credit, checked: "checked" %>クレジットカード
-</label>
-
-<br>
-
-<label>
-<%= f.radio_button :payment_methods, :bank, checked: "checked" %>銀行振込
-</label>
-
-
+	<label><%= f.radio_button :payment_methods, "true" %>クレジット</label><br>
+	<label><%= f.radio_button :payment_methods, "false" %>銀行振込</label>
 <h3>お届け先</h3>
 
 	<label>

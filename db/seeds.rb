@@ -55,7 +55,7 @@ Customer.create!(
       postal_code: '4444444',
       address: '笠川県冬田市志林川町5-2-7',
       phone_number: '0444044444',
-      is_deleted: true,
+      is_deleted: false,
       password: '444444',
       password_confirmation: '444444',
     },
@@ -125,31 +125,31 @@ Genre.create!(
     {
       id: 1,
       name: '食パン',
-      is_active: true
+      is_active: true,
     },
 
     {
       id: 2,
       name: '総菜パン',
-      is_active: true
+      is_active: true,
     },
 
     {
       id: 3,
       name: '菓子パン',
-      is_active: true
+      is_active: true,
     },
 
     {
       id: 4,
       name: '限定',
-      is_active: true
+      is_active: true,
     },
 
     {
       id: 5,
       name: 'その他菓子',
-      is_active: true
+      is_active: true,
     },
   ]
   )
@@ -172,7 +172,7 @@ Order.create!(
       name: '鈴鹿由美子',
       postal_code: '2222222',
       address: '細野県城見市世史が丘3-1-7',
-      payment_methods: true,
+      payment_methods: false,
       order_status: 2,
     },
 
