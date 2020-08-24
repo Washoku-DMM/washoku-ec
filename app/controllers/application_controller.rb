@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
     homes_top_path
   end
 
-  def price_include_tax(price)
-	price = price * 1.1
-	price.floor
-  end
 
   #カラム追加
   before_action :configure_permitted_parameters, if: :devise_controller?

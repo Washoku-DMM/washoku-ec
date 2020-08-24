@@ -1,10 +1,9 @@
 class Product < ApplicationRecord
   attachment :image
   belongs_to :genre
-  has_many :carts, dependent: :destroy
+  has_many :cart_products, dependent: :destroy
   has_many :order_products, dependent: :destroy
-
-
+  has_many :customers, through: :cart_products
 
   def tax_included_price
   	(price * 1.1).floor.to_s(:delimited)
