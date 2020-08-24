@@ -4,4 +4,5 @@
 
 
 <h2>管理者画面</h2>
-<p>本日の注文件数　　　　　件</p>
+<p>本日の注文件数 <%= link_to Order.where(created_at: Time.zone.now.all_day).count, admins_orders_path %>件</p>
+<!-- 現段階全注文件数になっている。本日の、にするにはcase when でindexを条件分けして表示できるようにして、リンクを変える必要がある。 -->
