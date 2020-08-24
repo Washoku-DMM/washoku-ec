@@ -30,9 +30,15 @@ class Admins::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to admins_products_path
+    if @product.update(product_params)
+       redirect_to admins_products_path
+     else
+      @product = Product.find(params[:id])
+      render "edit"
+    end
   end
+
+
 
   private
   def product_params
