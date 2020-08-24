@@ -4,7 +4,7 @@ class Admins::OrderProductsController < ApplicationController
   def update
     @order_product = OrderProduct.find(params[:id])
     @order_product.update(order_product_params)
-    redirect_back(fallback_location: root_path), notice: "更新完了"
+    redirect_back(fallback_location: root_path)
   end
 
   private

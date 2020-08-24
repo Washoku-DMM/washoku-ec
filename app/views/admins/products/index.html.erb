@@ -8,12 +8,12 @@
 <div class="body">
 <table>
     <thead>
-	    <tr>
-	      <th>商品ID</th>
-	      <th>商品名</th>
-	      <th>税抜き価格</th>
-	      <th>ジャンル</th>
-	      <th>ステータス</th>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜き価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
         <th><td><%= link_to "＋", new_admins_product_path %></td></th>
         </tr>
   </thead>
@@ -24,7 +24,11 @@
          <td><%= link_to product.name, admins_product_path(product.id) %></td>
          <td><%= product.price %></td>
         <td><%= product.genre.name %></td>
-         <td><%= product.is_active %></td>
+        <% if product.is_active == true %>
+          <td>販売中</td>
+          <% else %>
+          <td>売切れ</td>
+        <% end %>
        </tr>
       <% end %>
     </tbody>
