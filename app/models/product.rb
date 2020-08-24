@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :order_products, dependent: :destroy
   has_many :customers, through: :cart_products
 
+
   def tax_included_price
   	(price * 1.1).floor.to_s(:delimited)
   end
