@@ -15,8 +15,10 @@
 
 <h2>オススメ商品</h2>
 <% @rank_products.each do |product| %>
-  <%= attachment_image_tag @product, :image, size: '200x200',format: "jpeg",fallback: "washoku.jpg" %>
-  <%= product.name %>
+<%= link_to product_path(product) do %>
+<%= attachment_image_tag @product, :image, size: '200x200',format: "jpeg",fallback: "washoku.jpg" %>
+<%= product.name %>
+<% end %>
   <%= product.price %>円
 <% end %>
 

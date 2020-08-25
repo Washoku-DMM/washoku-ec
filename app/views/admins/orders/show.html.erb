@@ -8,8 +8,8 @@
 	<h4>購入者</h4>
 		<%= @order.customer.family_name %><%= @order.customer.first_name %>
 	<h4>配送先</h4>
-		〒<%= @delivery.postal_code %><%= @delivery.address %><br>
-		<%= @delivery.name %>
+		〒<%= @order.postal_code %><%= @order.address %><br>
+		<%= @order.name %>
 	<h4>支払い方法</h4>
 	<% if @order.payment_methods == 1 %>
 		<h5>クレジットカード</h4>
@@ -23,7 +23,7 @@
 		<%= f.submit "更新" %>
 		<% end %>
 
-	<table>
+	<table class="table table-hover table-inverse">
 	    <thead>
 		    <tr>
 		      <th>商品名</th>
@@ -39,9 +39,9 @@
 	      <% @order_products.each do |op| %>
 	       　<tr>
 	         　<td><%= op.product.name %></td>
-	         　<td><%= op.product.tax_included_price %></td>
-	         　<td><%= op.count %></td>
-	         　<td><%= op.product.tax_included_price.to_i * op.count.to_i %></td>
+	         　<td><%= op.product.tax_included_price %>円</td>
+	         　<td><%= op.count %>個</td>
+	         　<td><%= (op.product.tax_included_price.to_i * op.count.to_i).to_s(:delimited) %>円</td>
 	   			   <td><%= form_with model: op, url: admins_order_product_path(op.id) do |f| %>
 	           <%= f.select :product_status, {'着手不可': 0, '製作待ち': 1, '製作中': 2, '製作完了': 3} %>
 	           <%= f.submit "更新" %></td>
@@ -55,7 +55,7 @@
 		<strong>商品合計</strong>
 			<%= %>
 		<strong>送料</strong>
-		    <p>８００円</p>
+		    <p>800円</p>
 		<strong>請求金額合計</strong>
 			<%= %>
 	</div>
