@@ -42,7 +42,7 @@
 	         　<td><%= op.product.tax_included_price %></td>
 	         　<td><%= op.count %></td>
 	         　<td><%= op.product.tax_included_price.to_i * op.count.to_i %></td>
-	   			   <td><%= form_with model: op, url: admins_order_product_path do |f| %>
+	   			   <td><%= form_with model: op, url: admins_order_product_path(op.id) do |f| %>
 	           <%= f.select :product_status, {'着手不可': 0, '製作待ち': 1, '製作中': 2, '製作完了': 3} %>
 	           <%= f.submit "更新" %></td>
        <% end %>

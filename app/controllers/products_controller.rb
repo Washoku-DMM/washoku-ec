@@ -9,7 +9,6 @@ def index
 
     # else   #それ以外（ジャンル選択されていないなら）
 	# @products = Product.all.paginate(page: params[:page], per_page: 8)
-
 #8/22
     sort = params[:sort]
     product_genres = nil

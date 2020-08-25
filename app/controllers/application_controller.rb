@@ -5,9 +5,18 @@ class ApplicationController < ActionController::Base
 		when Admin
 		  admins_homes_top_path
 		when Customer
-		  cart_products_path
+		  root_path
 		end
 	end
+
+  def after_sign_out_path_for(resource)
+    if Admin
+      new_admins_admin_session_path
+    else Customer
+      new_customers_customer_session_path
+    end
+  end
+
 
 
   #カラム追加
