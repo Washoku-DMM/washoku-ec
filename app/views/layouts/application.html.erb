@@ -10,8 +10,7 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+
       <div class="container">
     <% if flash[:notice] %>
       <div class="flash">
@@ -19,4 +18,5 @@
       </div>
   <% end %>
 <%= yield %>
+</body>
 </html>
