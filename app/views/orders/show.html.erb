@@ -28,7 +28,6 @@
       <td>ステータス</td>
       <td><%= @order.order_status %></td>
     </tr>
-    <% end %>
   </tbody>
 </table>
 
@@ -45,14 +44,19 @@
       <td>個数</td>
       <td>小計</td>
     </tr>
-    <%# @orders.each do |order| オーダー全部をどうやって入れるか？order_product? %>
+    <% sum = 0 %>
+    <% @order.order_products.each do |order_product| %>
     <tr>
-      <td><%#= orderのproduct.name オーダーの商品を入れる %></td>
-      <td><%#= orderのproduct.price オーダーの商品を入れる %></td>
-      <td></td>
-      <td><%#= orderのproduct.count オーダーの商品を入れる %></td>
+      <td><%= order_product.product.name %></td>
+      <td><%= price_include_tax(order_product.price) %>
+      </td>
+      <td><%= order_product.count %></td>
+      <td>
+        <%= sub_total = price_include_tax(order_product.price).to_i * order_product.count %>円
+        <% sum += sub_total %>
+      </td>
     </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>
 
@@ -65,7 +69,7 @@
   <tbody>
     <tr>
       <td>商品合計</td>
-      <td><%= @order.billing_amount %></td>
+      <td><%= sum %></td>
     </tr>
     <tr>
       <td>配送料</td>
@@ -73,8 +77,9 @@
     </tr>
     <tr>
       <td>ご請求額</td>
-      <td><%#= @orderの合計金額 %></td>
+      <td>
+        <%= sum + @order.shipping_fee.to_i %>円
+      </td>
     </tr>
-    <% end %>
   </tbody>
 </table>

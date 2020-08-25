@@ -2,8 +2,8 @@
 class OrdersController < ApplicationController
 
    def index
-   	   @orders = Order.all
-   	   @customer = current_customers_customer
+      @customer = current_customers_customer
+   	  @orders = Order.where(customer_id: @customer.id)
    end
 
    def show
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
 
             @order.save
 
-            if Delivery.find_by(delivery: @order.address).nil?
+            if Delivery.find_by(address: @order.address).nil?
               @delivery = Delivery.new
               @delivery.postal_code = @order.postal_code
               @delivery.address = @order.address
@@ -115,13 +115,10 @@ class OrdersController < ApplicationController
        @customer = current_customers_customer
      end
 
-   def order_params
-    params.require(:order).permit(:shipping_fee, :postal_code, :address, :name, :postal_code, :adress, :payment_methods, :billing_amount, :order_status)
-   end
 
    def order_params
     params.require(:order).permit(
-      :created_at, :address, :name, :order_status, :payment_methods, :postal_code, :shipping_fee,
+      :created_at, :address, :name, :order_status, :payment_methods, :postal_code, :shipping_fee, :billing_amount, :customer_id,
       order_products_attributes: [:order_id, :product_id, :count, :price, :product_status]
       )
    end
