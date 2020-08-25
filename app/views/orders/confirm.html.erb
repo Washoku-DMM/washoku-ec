@@ -17,34 +17,37 @@
  		</tr>
  	</thead>
 
-<% sum_all = 0 %>
-<% @cart_products.each do |cart_product| %>
- 	<tbody>
- 			<tr>
- 			<td>
- 				<%= attachment_image_tag(cart_product.product, :image, :fill, 100, 100, fallback: "washoku.jpg", size: '100x100') %>
- 				<%= cart_product.product.image %><%= cart_product.product.name %></td>
- 			<td><%= ((cart_product.product.price)*1.1) %></td>
- 			<td><%= cart_product.count %></td>
- 			<td><%= ((cart_product.product.price)*1.1)*(cart_product.count) %></td>
- 			</tr>
- 	</tbody>
-<% end %>
+ 	<% sum = 0 %>
+	<% @cart_products.each do |cart_product| %>
+	<tbody>
+		<tr>
+			<td>
+				<%= attachment_image_tag(cart_product.product, :image, :fill, 100, 100, fallback: "washoku.jpg", size: '100x100') %>
+				<%= cart_product.product.name %></td>
+			<td><%= price_include_tax(cart_product.product.price) %></td>
+			<td>
+				<%= cart_product.count %>
+			</td>
+			<td>
+				<% sub_total = price_include_tax(cart_product.product.price).to_i * cart_product.count %>
+				<% sum+=sub_total %>
+				<%= sub_total %>
+			</td>
+		</tr>
+	</tbody>
+	<% end %>
 </table>
 
-
-<%= form_for @order do |f| %>
 
 <table>
 
 		<tr>
 			<th>送料</th>
 			<td><%= @order.shipping_fee %></td>
-			<!-- ↑全国一律800円なので、default:800？ -->
 		</tr>
 		<tr>
 			<th>合計金額</th>
-			<td><% sum.to_i %></td>
+			<td><%= sum %></td>
 		</tr>
 		<tr>
 			<th>請求金額</th>
@@ -57,15 +60,28 @@
 </table>
 
 
+
 <h3>支払方法</h3>
 <%= @order.payment_methods %>
 
 <h3>お届け先</h3>
+<%= @order.postal_code %>
 <%= @order.address %>
+<%= @order.name %>
+
+
+  <%= f.hidden_field :payment_methods, :value => "#{@order.payment_methods}" %>
+  <%= f.hidden_field :customer_id, :value => current_customers_customer.id %>
+  <%= f.hidden_field :postal_code, :value => "#{@order.postal_code}" %>
+  <%= f.hidden_field :address, :value => "#{@order.address}" %>
+  <%= f.hidden_field :name, :value => "#{@order.name}" %>
+  <%= f.hidden_field :billing_amount, :value => billling_amount %>
+  <%= f.hidden_field :shipping_fee, :value => "#{@order.shipping_fee}" %>
+
 
 
   <div class="actions">
-    <%= f.submit '注文情報入力画面へ戻る', name: 'back' %>
+    <%#= f.submit '注文情報入力画面へ戻る', name: 'back' %>
   </div>
 
   <div class="actions">
