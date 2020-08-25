@@ -11,14 +11,12 @@
 		購入には会員登録が必要になります。
 	</p>
 
-	<h2>オススメ商品</h2>
-	<!-- each文で表示 -->
-	 <div class="">
-	 	<%#= attachment_image_tag %>
-	 	<div>商品名</div>
-	 	<div>¥</div>
-	 </div>
 
-</div>
 
+<h2>オススメ商品</h2>
+<% @rank_products.each do |product| %>
+  <%= attachment_image_tag @product, :image, size: '200x200',format: "jpeg",fallback: "washoku.jpg" %>
+  <%= product.name %>
+  <%= product.price %>円
+<% end %>
 
