@@ -42,11 +42,14 @@
           <td><%= f.text_field :email %></td>
         </tr>
         <tr>
-          <td>会員ステータス</td>
+          <td>会員ステータス
             <label><%= f.radio_button :is_active, "true" %>有効</label>
-            <label><%= f.radio_button :is_active, "false" %>無効</label>
+            <label><%= f.radio_button :is_active, "false" %>無効</label></td>
+            <td>                 </td>
         </tr>
-        <tr><%= f.submit "変更を保存する" %></tr>
+        <tr><td><%= f.submit "変更を保存する" %></td>
+          <td>                        </td></tr>
+
       <% end %>
     </tbody>
 </table>
