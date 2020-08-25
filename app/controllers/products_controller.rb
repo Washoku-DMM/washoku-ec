@@ -2,22 +2,20 @@
 class ProductsController < ApplicationController
 
 def index
-	# # ジャンル選択されているなら
-	# if
-	# @products = Product.find(prpduct.genre.id).paginate(page: params[:page], per_page: 8)
-	# #↑ジャンルidから持ってこないといけない
+    # sort = params[:sort]
+    # product_genres = nil
+    @genres = Genre.where(is_active: 'true')
+    @genre = @genres.pluck(:id)
+    @products = Product.where(is_active: 'true')
+    @products = @products.where(genre_id: @genre).paginate(page: params[:page], per_page: 8)
 
-    # else   #それ以外（ジャンル選択されていないなら）
-	# @products = Product.all.paginate(page: params[:page], per_page: 8)
-#8/22
-    sort = params[:sort]
-    product_genres = nil
-      if product_genres
-	     @products = Product.where(product_genre_id: product_genres).
-	                         paginate(page: params[:page], per_page: 8)
-      else
-	     @products = Product.all.paginate(page: params[:page], per_page: 8)
-	 end
+      #    if product_genres
+	  #    @products = Product.where(product_genre_id: product_genres).
+	  #                        paginate(page: params[:page], per_page: 8)
+      #   else
+	  #    @products = Product.all.paginate(page: params[:page], per_page: 8)
+
+	  # end
 end
 
 
