@@ -19,8 +19,10 @@
     <tbody>
       <% @orders.each do |order| %>
        <tr>
-         <td><%= link_to order.created_at, admins_order_path(order)%></td>
-         <td><%= order.customer.family_name %><%= order.customer.first_name %></td>
+         <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admins_order_path(order)%></td>
+         <td><%= link_to admins_customer_path(order) do %>
+          <%= order.customer.family_name %><%= order.customer.first_name %>
+          <% end %></td>
          <td><%= order.order_products.count %></td>
           <% if order.order_status == 0 %>
             <td>入金待ち</td>
