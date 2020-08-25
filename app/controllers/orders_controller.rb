@@ -1,6 +1,9 @@
 
 class OrdersController < ApplicationController
 
+  before_action :authenticate_customers_customer!
+  before_action :set_customer
+
    def index
       @customer = current_customers_customer
    	  @orders = Order.where(customer_id: @customer.id)
@@ -18,7 +21,7 @@ class OrdersController < ApplicationController
    def new
    		@order = Order.new
          @customer = current_customers_customer
-         @deliveries = Delivery.all
+         @deliveries = Delivery.where(customer_id: @customer.id)
    end
 
    
@@ -63,11 +66,11 @@ class OrdersController < ApplicationController
               order_product.product_id = cart_product.product_id
               order_product.count = cart_product.count
               order_product.price = cart_product.product.price
+              order_product.customer_id = current_customers_customer.id
               order_product.save
               cart_product.destroy
 
             end
-            
             render :ordercomplete
 
       else
@@ -119,7 +122,7 @@ class OrdersController < ApplicationController
    def order_params
     params.require(:order).permit(
       :created_at, :address, :name, :order_status, :payment_methods, :postal_code, :shipping_fee, :billing_amount, :customer_id,
-      order_products_attributes: [:order_id, :product_id, :count, :price, :product_status]
+      order_products_attributes: [:order_id, :product_id, :count, :price, :product_status, :customer_id]
       )
    end
 
