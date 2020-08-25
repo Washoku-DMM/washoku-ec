@@ -1,6 +1,6 @@
 class CartProductsController < ApplicationController
 
-  before_action :authenticate_customers_customer!
+  # before_action :authenticate_customers_customer!
   before_action :set_cart_product, only: [:show, :update, :destroy, :edit]
   before_action :set_customer
 

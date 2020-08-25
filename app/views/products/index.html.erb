@@ -5,7 +5,7 @@
 
 
 <% @products.each do |product| %>
-<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg',fallback: "washoku.jpg", size:'300x300'  %>
+<%= attachment_image_tag product, :image, :fill,300,300,format:'jpeg',fallback: "washoku.jpg", size:'300x300'  %>
 <%= link_to product.name, product_path(product) %>
 <%= product.price %>
 
