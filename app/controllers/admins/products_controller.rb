@@ -21,12 +21,13 @@ class Admins::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
+    if @product.save
     redirect_to admins_products_path, notice: "追加完了"
   else
     @product = Product.new
     render "new"
   end
+end
 
   def edit
     @product = Product.find(params[:id])
