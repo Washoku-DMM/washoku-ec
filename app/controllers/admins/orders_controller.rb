@@ -28,6 +28,11 @@ class Admins::OrdersController < ApplicationController
     end
   end
 
+  def total_price
+    order_products.to_a.sum{ |order_product| order_oriduct.total_price }
+    
+  end
+
   private
   def order_params
     params.require(:order).permit(:name,:shipping_fee,:postal_code,:adress,:payment_methods,:billing_amount,:order_status)
