@@ -125,7 +125,7 @@ Genre.create!(
     {
       id: 1,
       name: '食パン',
-      is_active: true,
+      is_active: false,
     },
 
     {
