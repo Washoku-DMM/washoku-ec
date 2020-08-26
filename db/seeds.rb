@@ -131,7 +131,7 @@ Genre.create!(
     {
       id: 2,
       name: '総菜パン',
-      is_active: true,
+      is_active: false,
     },
 
     {

@@ -4,7 +4,7 @@
 
 
 
-<h2>商品一覧</h2>
+<h2><%= @genre.name %>一覧</h2>
 <% @products.each do |product| %>
 <%= link_to product_path(product) do %>
 <%= attachment_image_tag product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'100x100' %>
