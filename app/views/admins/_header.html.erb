@@ -5,7 +5,7 @@
 
   <p>ようこそ、<%= current_customers_customer.family_name %><%= current_customers_customer.first_name %>さん！</p>
   <li class="aikonn">
-    <%= link_to 'マイページ', homes_about_path, class: 'btn btn-primary' %>
+    <%= link_to 'マイページ', customer_path(current_customers_customer), class: 'btn btn-primary' %>
   </li>
   <li class="aikonn">
     <%= link_to '商品一覧', products_path, class: 'btn btn-primary' %>
