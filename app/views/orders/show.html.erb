@@ -21,12 +21,26 @@
           <%= @order.name %></td>
     </tr>
     <tr>
-      <td>支払方法</td>
-      <td><%= @order.payment_methods %></td>
+      <td><h4>支払方法</h4></td>
+        <% if @order.payment_methods == 1 %>
+      <td><h4>クレジットカード</h4></td>
+      <% else %>
+      <td><h4>銀行</h4></td>
+  <% end %>
     </tr>
     <tr>
       <td>ステータス</td>
-      <td><%= @order.order_status %></td>
+          <% if @order.order_status == 0 %>
+            <td>入金待ち</td>
+          <% elsif @order.order_status == 1 %>
+            <td>入金確認</td>
+          <% elsif @order.order_status == 2 %>
+            <td>製作中</td>
+          <% elsif @order.order_status == 3 %>
+            <td>発送準備中</td>
+          <% else %>
+            <td>発送済み</td>
+          <% end %>
     </tr>
   </tbody>
 </table>
