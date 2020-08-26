@@ -11,7 +11,7 @@
 		〒<%= @order.postal_code %><%= @order.address %><br>
 		<%= @order.name %>
 	<h4>支払方法</h4>
-	<% if @order.payment_methods == 1 %>
+	<% if @order.payment_methods == true %>
 		<h5>クレジットカード</h4>
 		<% else %>
 		<h5>銀行</h4>
