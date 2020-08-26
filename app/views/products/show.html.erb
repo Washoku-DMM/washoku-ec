@@ -1,7 +1,7 @@
 <!-- header -->
 <%= render 'admins/header' %>
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-
+<%= render 'products/genres_search' %>
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
 
 <%= attachment_image_tag @product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'100x100'  %>
