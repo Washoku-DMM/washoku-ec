@@ -24,7 +24,6 @@ class OrdersController < ApplicationController
          @deliveries = Delivery.where(customer_id: @customer.id)
    end
 
-   
    def create
       if current_customers_customer.cart_products.exists?
          @order = Order.new(order_params)
