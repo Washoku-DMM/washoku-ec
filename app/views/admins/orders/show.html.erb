@@ -10,14 +10,13 @@
 	<h4>配送先</h4>
 		〒<%= @order.postal_code %><%= @order.address %><br>
 		<%= @order.name %>
-	<h4>支払い方法</h4>
+	<h4>支払方法</h4>
 	<% if @order.payment_methods == 1 %>
 		<h5>クレジットカード</h4>
 		<% else %>
 		<h5>銀行</h4>
 	<% end %>
 	<h4>注文ステータス</h4>
-		<!-- ↓作成途中 -->
 		<%= f.label :order_status, '注文ステータス' %>
         <%= f.select :order_status, {'入金待ち': 0, '入金確認': 1, '製作中': 2, '発送準備中': 3, '発送済み': 4} %>
 		<%= f.submit "更新" %>
