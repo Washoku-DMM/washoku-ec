@@ -3,5 +3,6 @@ class CartProduct < ApplicationRecord
 	belongs_to :product
 	validates :customer_id, presence: true
 	validates :product_id, presence: true
+	validates :count, presence: true
 
 end
