@@ -1,3 +1,8 @@
 
 <!-- 販売ステータスが有効のみ表示 -->
-
+<h2>ジャンル検索</h2>
+<h2>
+<% @genres.each do |genre| %>
+<%= link_to genre.name,"/products" %>
+<% end %>
+</h2>
