@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-  def after_sign_out_path_for(resource)
-    if Admin
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :admins_admin
       new_admins_admin_session_path
-    else Customer
+    else
       new_customers_customer_session_path
     end
   end
