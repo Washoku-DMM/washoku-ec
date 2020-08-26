@@ -9,13 +9,15 @@
 <h3><strong><%= f.label :支払方法 %></strong></h3>
 
 <label>
-<%= f.radio_button :payment_methods, "true" %>クレジットカード
+<%= f.radio_button :payment_methods, true %>クレジットカード
+
 </label>
 
 <br>
 
 <label>
-<%= f.radio_button :payment_methods, "false" %>銀行振込
+<%= f.radio_button :payment_methods, false %>銀行振込
+
 </label>
 
 
