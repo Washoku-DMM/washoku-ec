@@ -19,7 +19,8 @@
 
   <% elsif admins_admin_signed_in? %>
 
-  <li class="aikonn"><%= link_to '商品一覧', admins_products_path, class: 'btn btn-primary' %>
+  <li class="aikonn">
+    <%= link_to '商品一覧', admins_products_path, class: 'btn btn-primary' %>
   </li>
   <li class="aikonn">
     <%= link_to '会員一覧', admins_customers_path, class: 'btn btn-primary' %>
@@ -31,7 +32,7 @@
     <%= link_to 'ジャンル一覧', admins_genres_path, class: 'btn btn-primary' %>
   </li>
   <li class="aikonn">
-    <%= link_to 'ログアウト', destroy_customers_customer_session_path, method: :delete, class: 'btn btn-primary' %>
+    <%= link_to 'ログアウト', destroy_admins_admin_session_path, method: :delete, class: 'btn btn-primary' %>
   </li>
   <%#= f.text_field "search" %>
 
