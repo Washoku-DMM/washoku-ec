@@ -9,12 +9,12 @@
   <thead>
     <tr>
       <th>顧客ID</th>
-      <th><%= @customer.id %></th>
-      <%# if is_deleted == 0 %>
-      <th>有効会員</th>
-      <%# else %>
-      <th>無効会員</th>
-      <%# end %>
+      <th><%= @customer.id %>
+      <% if @customer.is_deleted == true %>
+      有効会員</th>
+      <% else %>
+      無効会員</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
