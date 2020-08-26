@@ -31,7 +31,7 @@
     <%= link_to 'ジャンル一覧', admins_genres_path, class: 'btn btn-primary' %>
   </li>
   <li class="aikonn">
-    <%= link_to 'ログアウト', destroy_customers_customer_session_path, method: :delete, class: 'btn btn-primary' %>
+    <%= link_to 'ログアウト', destroy_admins_admin_session_path, method: :delete, class: 'btn btn-primary' %>
   </li>
 
     <% else %>
@@ -43,7 +43,7 @@
     <%= link_to '商品一覧', products_path, class: 'btn btn-primary' %>
   </li>
   <li class="aikonn">
-    <%= link_to '新規登録', new_customers_customer_session_path, class: 'btn btn-primary' %>
+    <%= link_to '新規登録', new_customers_customer_registration_path, class: 'btn btn-primary' %>
   </li>
   <li class="aikonn">
     <%= link_to 'ログイン',  customers_customer_session_path, class: 'btn btn-primary' %>
