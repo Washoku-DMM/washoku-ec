@@ -28,7 +28,7 @@
             <%= order_product.product.name %><br>
           </td>
           <td>
-            <%= order_product.order.billing_amount %>
+            <%= order_product.order.billing_amount.to_s(:delimited) %>
           </td>
           <td>
             <% if order.order_status = 0 %>

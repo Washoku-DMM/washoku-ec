@@ -32,11 +32,11 @@ before_action :reject_customer, only: [:create]
     @customer = Customer.find_by(email: params[:customers_customer][:email].downcase)
     if @customer
       if (@customer.valid_password?(params[:customers_customer][:password]) && (@customer.active_for_authentication? == false))
-        flash[:error] = "退会済みです。"
+        flash[:error] = "お客様は既に退会済みです。"
         redirect_to new_customers_customer_session_path
       end
     else
-        flash[:error] = "必須項目を入力してください。。"
+        flash[:error] = "お客様の情報を保存出来ませんでした。空欄の箇所はありませんか？"
     end
   end
 end
