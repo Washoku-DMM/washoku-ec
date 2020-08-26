@@ -21,8 +21,9 @@ def create
 			flash[:danger] = 'カートに商品を追加できませんでした。'
 		end
 	else
-		@current_product.count += params[:count].to_i
-		@current_product.update(cart_product_params)
+		new_count = @current_product.count + cart_product_params[:count].to_i
+		@current_product.update(count: new_count)
+		flash[:success] = 'カート内の商品を更新しました！'
 		redirect_to cart_products_path
 	end
 end
