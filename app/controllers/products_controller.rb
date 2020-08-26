@@ -4,14 +4,27 @@ class ProductsController < ApplicationController
 def index
     # sort = params[:sort]
     # product_genres = nil
+#binding.pry
+if  params[:genre_id]
+    @genre = Genre.find(params[:genre_id])
+    @products = @genre.products
+
+
+  else
     @genres = Genre.where(is_active: 'true')
     @genre = @genres.pluck(:id)
-    @products = Product.where(is_active: 'true')
-    @products = @products.where(genre_id: @genre).paginate(page: params[:page], per_page: 8)
+    @product = Product.where(is_active: 'true')
+    @products = @product.where(genre_id: @genre).paginate(page: params[:page], per_page: 8)
 
- 
+end
+#binding.pry
 end
 
+def genre_item
+  @genre = Genre.find(params[:id])
+  @products = Product.where(genre_id: @genre.id).paginate(page: params[:page], per_page: 8)
+  @genres = Genre.where(is_active: 'true')
+end
 
 def show
 	@product =Product.find(params[:id])

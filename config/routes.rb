@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     get 'orders/ordercomplete'
 
     resources :products
+    get "genres/:id/products" => 'products#genre_item', as: 'genre_products'
+
 
     resources :customers, only: [:show, :edit, :update] do
       member do

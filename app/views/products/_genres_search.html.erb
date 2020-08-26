@@ -3,6 +3,6 @@
 <h2>ジャンル検索</h2>
 <h2>
 <% @genres.each do |genre| %>
-<%= link_to genre.name,"/products" %>
+<%= link_to genre.name, genre_products_path(genre) %>
 <% end %>
 </h2>
