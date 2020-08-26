@@ -11,7 +11,6 @@ class Admins::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @orders = Order.all
-    @delivery = Delivery.find(params[:id])
     @order_products = @order.order_products
   end
 
@@ -22,7 +21,6 @@ class Admins::OrdersController < ApplicationController
     else
     @order = Order.find(params[:id])
     @orders = Order.all
-    @delivery = Delivery.find(params[:id])
     @order_products = @order.order_products
       render "show"
     end

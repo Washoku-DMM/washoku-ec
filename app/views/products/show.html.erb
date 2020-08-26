@@ -4,10 +4,10 @@
 
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
 
-<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg',fallback: "washoku.jpg", size:'300x300'  %>
+<%= attachment_image_tag @product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'100x100'  %>
 	<h1><%= @product.name %></h1>
 	<h4><%= @product.product_introduction %></h4>
-	<h4>¥</h4><%= @product.tax_included_price %> <h4>（税込）</h4>
+	<h4>¥<%= @product.tax_included_price %>（税込）</h4>
 
   <%= form_with(model: [@product, @cart_product], local: true, url: {controller: 'cart_products', action: 'create'}) do |f| %>
 

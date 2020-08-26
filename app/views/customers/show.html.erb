@@ -1,3 +1,6 @@
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
 <h2>マイページ</h2>
 
 <h3>登録情報</h3>
@@ -6,7 +9,7 @@
 
 <%= link_to "パスワードを変更する",  new_customers_customer_password_path, class: "btn-sm btn-success new_user_password_#{@customer.id}" %>
 
-<table>
+<table class="table table-hover table-inverse">
 		<tr>
 			<th>氏名</th>
 			<td><%= @customer.family_name %><%= @customer.first_name %></td>

@@ -1,8 +1,11 @@
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
 <h2>ショッピングカート</h2>
 
 <%= link_to 'カートを空にする', destroy_all_cart_products_path, method: :delete, class: 'btn btn-danger' %>
 
-<table>
+<table class=“table table-hover table-inverse”>
 	<thead>
 		<tr>
 			<th>商品名</th>
@@ -29,7 +32,7 @@
 			<td>
 				<% sub_total = price_include_tax(cart_product.product.price).to_i * cart_product.count %>
 				<% sum+=sub_total %>
-				<%= sub_total %>
+				<%= sub_total.to_s(:delimited) %>
 			</td>
 			<td>
 
@@ -44,7 +47,7 @@
 		<tr>
 			<th>合計金額</th>
 			<td>
-				<%= sum %>
+				<%= sum.to_s(:delimited) %>円
 				</td>
 		</tr>
 	</tbody>
