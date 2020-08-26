@@ -17,8 +17,8 @@ def create
 			redirect_to cart_products_path
 		else
 			@cart_products = @customer.cart_products.all
-			render 'index'
 			flash[:danger] = 'カートに商品を追加できませんでした。'
+			render 'index'
 		end
 	else
 		new_count = @current_product.count + cart_product_params[:count].to_i
