@@ -5,7 +5,7 @@
   <h2>商品新規登録</h2>
 </div>
 
-<div class="body">
+<div class="body form-group"">
 
   <%= form_with model: @product, url: admins_products_path do |f| %>
 
@@ -28,7 +28,7 @@
   <!-- ↓作成途中 値を返すのはtrue/falseじゃなくて販売中とかの方がいい？ -->
   <%= f.select :is_active, [["販売中", "true"], ["売切れ", "false"]] %>
 
-  <%= f.submit "新規登録" %>
+  <%= f.submit "新規登録", class: "btn-sm btn-primary" %>
 
   <% end %>
 </div>

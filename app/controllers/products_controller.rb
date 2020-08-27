@@ -16,8 +16,7 @@ if  params[:genre_id]
     @product = Product.where(is_active: 'true')
     @products = @product.where(genre_id: @genre).paginate(page: params[:page], per_page: 8)
 
-end
-#binding.pry
+  end
 end
 
 def genre_item

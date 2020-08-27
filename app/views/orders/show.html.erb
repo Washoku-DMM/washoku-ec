@@ -21,7 +21,7 @@
           <%= @order.name %></td>
     </tr>
     <tr>
-      <td><h4>支払方法</h4></td>
+      <td class="active"><h4>支払方法</h4></td>
         <% if @order.payment_methods == true %>
       <td><h4>クレジットカード</h4></td>
       <% else %>
@@ -66,7 +66,7 @@
       </td>
       <td><%= order_product.count %></td>
       <td>
-        <%= sub_total = price_include_tax(order_product.price).to_i * order_product.count %>円
+        <%= (sub_total = price_include_tax(order_product.price).to_i * order_product.count).to_s(:delimited) %>円
         <% sum += sub_total %>
       </td>
     </tr>
@@ -83,7 +83,7 @@
   <tbody>
     <tr>
       <td>商品合計</td>
-      <td><%= sum.to_i %></td>
+      <td><%= sum.to_s(:delimited) %></td>
     </tr>
     <tr>
       <td>配送料</td>
@@ -92,7 +92,7 @@
     <tr>
       <td>ご請求額</td>
       <td>
-        <%= sum + @order.shipping_fee.to_i %>円
+        <%= (sum + @order.shipping_fee).to_s(:delimited) %>円
       </td>
     </tr>
   </tbody>
