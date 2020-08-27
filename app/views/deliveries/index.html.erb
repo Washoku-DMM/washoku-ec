@@ -51,7 +51,7 @@
 				<td><%= delivery.address %></td>
 				<td><%= delivery.name %></td>
 				<td>
-					<%= link_to "編集する", edit_delivery_path(delivery), class: "btn-sm btn-success edit_delivery_#{delivery.id}" %>
+					<%= link_to "編集する", edit_delivery_path(delivery), class: "btn-sm btn-primary edit_delivery_#{delivery.id}" %>
 
 					<%= link_to "削除する", delivery_path(delivery), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_delivery_#{delivery.id}" %>
 				</td>
@@ -60,12 +60,3 @@
 		</tbody>
 	</table>
 
-
-<!--
-
-index	配送先一覧表示する
-create	配送先追加する（郵便番号・住所・宛名）
-edit	配送先を編集画面を表示する
-update	配送先を編集する
-update	配送先を編集する
-destroy	配送先を削除する -->
