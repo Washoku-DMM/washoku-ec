@@ -23,9 +23,7 @@
     <%= link_to 'ログアウト', destroy_customers_customer_session_path, method: :delete, class: 'btn btn-primary' %>
   </li>
 
-
-    <% elsif admins_admin_signed_in? %>
-
+  <% elsif admins_admin_signed_in? %>
 
   <div class="logo">
     <%= link_to admins_homes_top_path do %>
