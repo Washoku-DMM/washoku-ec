@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
 
       else
        redirect_to top_path
-　　　        flash[:danger] = 'カートが空です。'
+        flash[:danger] = 'カートが空です。'
       end
 
    end

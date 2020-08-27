@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :customers do
-  devise_for :customers
+    devise_for :customers
   end
 
   namespace :admins do
@@ -16,35 +16,35 @@ Rails.application.routes.draw do
 
   resources :genres, only: [:index]
 
-    get 'homes/about'
-    root 'homes#top'
+  get 'homes/about'
+  root 'homes#top'
 
-    resources :orders, only: [:index, :show, :create, :new]
+  resources :orders, only: [:index, :show, :create, :new]
 
-    post 'orders/confirm'
+  post 'orders/confirm'
 
-    get 'orders/ordercomplete'
+  get 'orders/ordercomplete'
 
-    resources :products
-    get "genres/:id/products" => 'products#genre_item', as: 'genre_products'
+  resources :products
+  get "genres/:id/products" => 'products#genre_item', as: 'genre_products'
 
 
-    resources :customers, only: [:show, :edit, :update] do
-      member do
-            get "withdrawl"
-            patch "hide"
-        end
+  resources :customers, only: [:show, :edit, :update] do
+    member do
+      get "withdrawl"
+      patch "hide"
     end
+  end
 
-    get 'customers/hide'
+  get 'customers/hide'
 
-    resources :cart_products, only: [:index, :create, :update, :destroy] do
-      collection do
-          delete 'destroy_all'
-      end
+  resources :cart_products, only: [:index, :create, :update, :destroy] do
+    collection do
+      delete 'destroy_all'
     end
+  end
 
-    resources :deliveries, except: [:show]
+  resources :deliveries, except: [:show]
 
 
 

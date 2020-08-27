@@ -18,23 +18,23 @@ class Admins::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.update(order_params)
       if @order.order_status == 1
-         @order.order_products.each do |order_product|
-          order_product.update(product_status: 1)
-         end
+       @order.order_products.each do |order_product|
+        order_product.update(product_status: 1)
       end
-        redirect_to admins_orders_path(@order), notice: "更新完了"
-    else
+    end
+    redirect_to admins_orders_path(@order), notice: "更新完了"
+  else
     @order = Order.find(params[:id])
     @orders = Order.all
     @order_products = @order.order_products
-      render "show"
-    end
+    render "show"
   end
+end
 
-  private
-  def order_params
-    params.require(:order).permit(:name,:shipping_fee,:postal_code,:adress,:payment_methods,:billing_amount,:order_status)
-  end
+private
+def order_params
+  params.require(:order).permit(:name,:shipping_fee,:postal_code,:adress,:payment_methods,:billing_amount,:order_status)
+end
 
 
 end
