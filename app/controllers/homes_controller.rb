@@ -8,9 +8,7 @@ def top
     # @genre = @genres.where(genre_name: @genre)
 
 
-
 end
-
 
 
 def about
