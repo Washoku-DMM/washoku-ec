@@ -1,10 +1,11 @@
 <header>
+       <ul class="nav navbar-nav navbar-right" >
   <% if customers_customer_signed_in? %>
 
-
   <div class="logo">
-    <%= link_to root_path %>
+    <%= link_to root_path do %>
     <%= image_tag('icon3.jpg') %>
+    <% end %>
   </div>
 
 
@@ -23,13 +24,13 @@
   </li>
 
 
-   <% end %>
-  <% if admins_admin_signed_in? %>
+    <% elsif admins_admin_signed_in? %>
 
 
   <div class="logo">
-    <%= link_to admins_homes_top_path %>
+    <%= link_to admins_homes_top_path do %>
     <%= image_tag('icon3.jpg') %>
+    <% end %>
   </div>
 
   <li class="aikonn">
@@ -51,8 +52,9 @@
   <% else %>
 
   <div class="logo">
-    <%= link_to root_path %>
+    <%= link_to root_path do %>
     <%= image_tag('icon3.jpg') %>
+    <% end %>
   </div>
 
   <li class="aikonn">
@@ -69,4 +71,5 @@
   </li>
 
   <% end %>
+</ul>
 </header>
