@@ -7,28 +7,28 @@
 
 <div class="body">
 
-<%= form_with model: @product, url: admins_products_path do |f| %>
+  <%= form_with model: @product, url: admins_products_path do |f| %>
 
-<%= f.attachment_field :image %>
+  <%= f.attachment_field :image %>
 
-<h4>商品名</h4>
-<%= f.text_field :name %>
+  <h4>商品名</h4>
+  <%= f.text_field :name %>
 
-<h4>商品説明</h4>
-<%= f.text_area :product_introduction %>
+  <h4>商品説明</h4>
+  <%= f.text_area :product_introduction %>
 
-<h4>ジャンル</h4>
-<!-- ↓作成途中 -->
-<%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %>
+  <h4>ジャンル</h4>
+  <!-- ↓作成途中 -->
+  <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %>
 
-<h4>税抜価格</h4>
-<%= f.text_field :price %>円
+  <h4>税抜価格</h4>
+  <%= f.text_field :price %>円
 
-<h4>販売ステータス</h4>
-<!-- ↓作成途中 値を返すのはtrue/falseじゃなくて販売中とかの方がいい？ -->
-<%= f.select :is_active, [["販売中", "true"], ["売切れ", "false"]] %>
+  <h4>販売ステータス</h4>
+  <!-- ↓作成途中 値を返すのはtrue/falseじゃなくて販売中とかの方がいい？ -->
+  <%= f.select :is_active, [["販売中", "true"], ["売切れ", "false"]] %>
 
-<%= f.submit "新規登録" %>
+  <%= f.submit "新規登録" %>
 
-<% end %>
+  <% end %>
 </div>

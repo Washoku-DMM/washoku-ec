@@ -5,27 +5,27 @@
 <div class="container">
   <div class="row">
     <div class="main col-md-offset-3 col-md-10">
-            <h4 class="logintitle">管理者ログイン</h4>
+      <h4 class="logintitle">管理者ログイン</h4>
 
-            <br><br>
+      <br><br>
 
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="field">
-                <%= f.label :メールアドレス %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"60" %>
-              </div>
-              <br>
-              <div class="field">
-                <%= f.label :パスワード　　 %>
-                <%= f.password_field :password, autocomplete: "current-password", :size=>"60" %>
-              </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :メールアドレス %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"60" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :パスワード %>
+        <%= f.password_field :password, autocomplete: "current-password", :size=>"60" %>
+      </div>
 
-              <br>
+      <br>
 
-              <div class="actions", align="right" style="margin-right:595px">
-                <%= f.submit "ログイン", class: "btn btn-primary" %>
-              </div>
-            <% end %>
+      <div class="actions", align="right" style="margin-right:595px">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
+      <% end %>
 
     </div>
   </div>

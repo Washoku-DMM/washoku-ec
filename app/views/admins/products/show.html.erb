@@ -8,19 +8,19 @@
 <div class="body">
 	<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
 	<h4>商品名</h4>
-		<%= @product.name %>
-	<h4>商品説明</h4>
-		<%= @product.product_introduction %>
-	<h4>ジャンル</h4>
-		<%= @genre.name %>
-	<h4>税込価格（税抜価格）</h4>
-		<%= @product.tax_included_price %>(<%= @product.price.to_s(:delimited) %>)円
-	<h4>販売ステータス</h4>
-	       <% if @product.is_active == true %>
-          <h5>販売中</h5>
-          <% else %>
-          <h5>売切れ</h5>
-        <% end %>
+  <%= @product.name %>
+  <h4>商品説明</h4>
+  <%= @product.product_introduction %>
+  <h4>ジャンル</h4>
+  <%= @genre.name %>
+  <h4>税込価格（税抜価格）</h4>
+  <%= @product.tax_included_price %>(<%= @product.price.to_s(:delimited) %>)円
+  <h4>販売ステータス</h4>
+  <% if @product.is_active == true %>
+  <h5>販売中</h5>
+  <% else %>
+  <h5>売切れ</h5>
+  <% end %>
 </div>
 
 <%= link_to '編集する', edit_admins_product_path(@product) , class: 'btn btn-primary' %>

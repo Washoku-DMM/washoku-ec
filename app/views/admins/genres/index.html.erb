@@ -4,13 +4,13 @@
 <!-- header -->
 
 <div class="body title">ジャンル一覧・追加</div>
-  <div class="body">
-    <%= form_with model: @genre, url: admins_genres_path do |f| %>
-    <p>ジャンル
-      <%= f.text_field :name %>
-      <label><%= f.radio_button :is_active, "true" %>有効</label>
-      <label><%= f.radio_button :is_active, "false" %>無効</label>
-      <%= f.submit "追加" %></p>
+<div class="body">
+  <%= form_with model: @genre, url: admins_genres_path do |f| %>
+  <p>ジャンル
+    <%= f.text_field :name %>
+    <label><%= f.radio_button :is_active, "true" %>有効</label>
+    <label><%= f.radio_button :is_active, "false" %>無効</label>
+    <%= f.submit "追加" %></p>
     <% end %>
 
 
