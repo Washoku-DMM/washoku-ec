@@ -10,9 +10,9 @@
 
 <h3>登録情報</h3>
 
-<%= link_to "編集する", edit_customer_path(@customer), class: "btn-sm btn-success edit_customer_#{@customer.id}" %>
+<%= link_to "編集する", edit_customer_path(@customer), class: "btn-sm btn-primary edit_customer_#{@customer.id}" %>
 
-<%= link_to "パスワードを変更する", edit_customers_customer_registration_path, class: "btn-sm btn-success" %>
+<%= link_to "パスワードを変更する", edit_customers_customer_registration_path, class: "btn-sm btn-primary" %>
 
 <table class="table">
 		<tr>
@@ -43,9 +43,9 @@
 
 <h3>配送先</h3>
 
-<%= link_to "一覧を見る", deliveries_path(@customer), class: "btn-sm btn-success deliveries_#{@customer.id}" %>
+<%= link_to "一覧を見る", deliveries_path(@customer), class: "btn-sm btn-primary deliveries_#{@customer.id}" %>
 
 
 <h3>注文履歴</h3>
 
-<%= link_to "一覧を見る", orders_path(@customer), class: "btn-sm btn-success orders_#{@customer.id}" %>
+<%= link_to "一覧を見る", orders_path(@customer), class: "btn-sm btn-primary orders_#{@customer.id}" %>

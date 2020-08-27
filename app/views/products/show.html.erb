@@ -14,5 +14,5 @@
      <%= f.select :count, options_for_select((1..99).to_a), include_blank: "個数選択" %>
      <%= f.hidden_field :product_id, value: @product.id  %>
 
-     <%= f.submit 'カートに入れる' %>
+     <%= f.submit 'カートに入れる', class: "btn btn-primary" %>
   <% end %>

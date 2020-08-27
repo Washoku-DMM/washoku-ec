@@ -10,7 +10,7 @@
     <%= f.text_field :name %>
     <label><%= f.radio_button :is_active, "true" %>有効</label>
     <label><%= f.radio_button :is_active, "false" %>無効</label>
-    <%= f.submit "追加" %></p>
+    <%= f.submit "追加", class: "btn-sm btn-primary" %></p>
     <% end %>
 
 
@@ -31,7 +31,7 @@
           <% else %>
           <td>無効</td>
           <% end %>
-          <td><%= link_to "編集する", edit_admins_genre_path(genre) %></td>
+          <td><%= link_to "編集する", edit_admins_genre_path(genre), class: "btn-sm btn-primary" %></td>
         </tr>
         <% end %>
       </tbody>
