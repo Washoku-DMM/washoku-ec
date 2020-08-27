@@ -17,14 +17,14 @@
 @import "bootstrap";
 
 .container {
-	margin-top: 100px;
+	margin-top: 10px;
 }
 .pagetitle {
 	display:inline-block;
  	background-color: #f5f5f5;
 }
 .header{
-    height:80px;
+    height:10px;
 	posistion:relative;
 	left: 50px;
 }
@@ -37,4 +37,8 @@
 .body{
 	width:60%;
 	margin: 0 auto;
+}
+
+.aikonn {
+      display:inline-block;
 }

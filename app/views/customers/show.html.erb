@@ -14,29 +14,29 @@
 
 <%= link_to "パスワードを変更する", edit_customers_customer_registration_path, class: "btn-sm btn-success" %>
 
-<table class="table table-hover table-inverse">
+<table class="table">
 		<tr>
-			<th>氏名</th>
+			<th class="active">氏名</th>
 			<td><%= @customer.family_name %><%= @customer.first_name %></td>
 		</tr>
 		<tr>
-			<th>カナ</th>
+			<th class="active">カナ</th>
 			<td><%= @customer.family_name_kana %><%= @customer.first_name_kana %></td>
 		</tr>
 		<tr>
-			<th>郵便番号</th>
+			<th class="active">郵便番号</th>
 			<td><%= @customer.postal_code %></td>
 		</tr>
 		<tr>
-			<th>住所</th>
+			<th class="active">住所</th>
 			<td><%= @customer.address %></td>
 		</tr>
 		<tr>
-			<th>電話番号</th>
+			<th class="active">電話番号</th>
 			<td><%= @customer.phone_number %></td>
 		</tr>
 		<tr>
-			<th>メールアドレス</th>
+			<th class="active">メールアドレス</th>
 			<td><%= @customer.email %></td>
 		</tr>
 </table>

@@ -2,6 +2,7 @@
 
 <% if customers_customer_signed_in? %>
 <header>
+       <ul class="nav navbar-nav navbar-right" >
 
   <p>ようこそ、<%= current_customers_customer.family_name %><%= current_customers_customer.first_name %>さん！</p>
   <li class="aikonn">
@@ -16,8 +17,12 @@
   <li class="aikonn">
     <%= link_to 'ログアウト', destroy_customers_customer_session_path, method: :delete, class: 'btn btn-primary' %>
   </li>
+</ul>
+</header>
 
   <% elsif admins_admin_signed_in? %>
+     <header>
+       <ul class="nav navbar-nav navbar-right" >
 
   <li class="aikonn"><%= link_to '商品一覧', admins_products_path, class: 'btn btn-primary' %>
   </li>
@@ -48,6 +53,6 @@
   <li class="aikonn">
     <%= link_to 'ログイン',  customers_customer_session_path, class: 'btn btn-primary' %>
   </li>
-
+</ul>
   <% end %>
 </header>

@@ -125,13 +125,13 @@ Genre.create!(
     {
       id: 1,
       name: '食パン',
-      is_active: false,
+      is_active: true,
     },
 
     {
       id: 2,
       name: '総菜パン',
-      is_active: false,
+      is_active: true,
     },
 
     {

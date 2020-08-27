@@ -3,7 +3,7 @@
 <!-- header -->
 <h2>注文履歴詳細</h2>
 
-<table class="table table-hover table-inverse">
+<table class="table">
   <thead>
     <tr>
       <th>注文情報</th>
@@ -11,17 +11,17 @@
   </thead>
   <tbody>
     <tr>
-      <td>注文日</td>
+      <td class="active">注文日</td>
       <td><%= @order.created_at %></td>
     </tr>
     <tr>
-      <td>配送先</td>
+      <td class="active">配送先</td>
       <td><%= @order.postal_code %><br>
           <%= @order.address %>
           <%= @order.name %></td>
     </tr>
     <tr>
-      <td><h4>支払方法</h4></td>
+      <td class="active"><h4>支払方法</h4></td>
         <% if @order.payment_methods == true %>
       <td><h4>クレジットカード</h4></td>
       <% else %>
@@ -45,7 +45,7 @@
   </tbody>
 </table>
 
-<table class="table table-hover table-inverse">
+<table class="table">
   <thead>
     <tr>
       <th>注文内容</th>
