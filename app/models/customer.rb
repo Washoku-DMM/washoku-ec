@@ -12,6 +12,10 @@ class Customer < ApplicationRecord
   has_many :cart_products, dependent: :destroy
   has_many :products, through: :cart_products
 
+  def active_for_authentication?
+    super && (self.is_deleted == true)
+  end
+
 
   validates :email, presence: true, uniqueness: true
   validates :family_name, presence: true
@@ -21,6 +25,8 @@ class Customer < ApplicationRecord
   validates :postal_code, presence: true, numericality: { only_integer: true }
   validates :address, presence: true
   validates :phone_number, presence: true, numericality: { only_integer: true }
+
+
 
 
 

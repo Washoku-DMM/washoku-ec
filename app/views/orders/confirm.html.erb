@@ -6,10 +6,11 @@
 
 <%= form_with(model: @order, local: true) do |f| %>
 
- <table>
+
+<table class="table">
 
  	<thead>
- 		<tr>
+      <tr class="active">
  			<th>商品名</th>
  			<th>単価（税込）</th>
  			<th>数量</th>
@@ -31,15 +32,14 @@
 			<td>
 				<% sub_total = price_include_tax(cart_product.product.price).to_i * cart_product.count %>
 				<% sum+=sub_total %>
-				<%= sub_total %>
+				<%= sub_total.to_s(:delimited) %>
 			</td>
 		</tr>
 	</tbody>
 	<% end %>
 </table>
 
-
-<table>
+<table class="table">
 
 		<tr>
 			<th>送料</th>
@@ -47,13 +47,13 @@
 		</tr>
 		<tr>
 			<th>合計金額</th>
-			<td><%= sum %></td>
+			<td><%= sum.to_s(:delimited) %></td>
 		</tr>
 		<tr>
 			<th>請求金額</th>
 			<td>
 				<% billling_amount = sum + @order.shipping_fee.to_i %>
-          		<%= billling_amount.to_i %>円
+          		<%= billling_amount.to_s(:delimited) %>
 
 			</td>
 		</tr>
@@ -62,7 +62,11 @@
 
 
 <h3>支払方法</h3>
-<%= @order.payment_methods %>
+<% if @order.payment_methods == true %>
+	<%= "クレジットカード" %>
+<% else %>
+	<%= "銀行振込" %>
+<% end %>
 
 <h3>お届け先</h3>
 <%= @order.postal_code %>

@@ -5,21 +5,20 @@
 <h2>注文履歴詳細</h2>
 
 <%= form_with model: @order, url: admins_order_path do |f| %>
-	<h4>購入者</h4>
-		<%= @order.customer.family_name %><%= @order.customer.first_name %>
-	<h4>配送先</h4>
-		〒<%= @delivery.postal_code %><%= @delivery.address %><br>
-		<%= @delivery.name %>
-	<h4>支払い方法</h4>
-	<% if @order.payment_methods == 1 %>
-		<h5>クレジットカード</h4>
-		<% else %>
-		<h5>銀行</h4>
-	<% end %>
-	<h4>注文ステータス</h4>
-		<!-- ↓作成途中 -->
+<h4>購入者</h4>
+<%= @order.customer.family_name %><%= @order.customer.first_name %>
+<h4>配送先</h4>
+〒<%= @order.postal_code %><%= @order.address %><br>
+<%= @order.name %>
+<h4>支払方法</h4>
+<% if @order.payment_methods == true %>
+<h5>クレジットカード</h4>
+	<% else %>
+	<h5>銀行</h4>
+		<% end %>
+		<h4>注文ステータス</h4>
 		<%= f.label :order_status, '注文ステータス' %>
-        <%= f.select :order_status, {'入金待ち': 0, '入金確認': 1, '製作中': 2, '発送準備中': 3, '発送済み': 4} %>
+		<%= f.select :order_status, {'入金待ち': 0, '入金確認': 1, '製作中': 2, '発送準備中': 3, '発送済み': 4} %>
 		<%= f.submit "更新" %>
 		<% end %>
 
@@ -61,3 +60,41 @@
 		<strong>請求金額合計</strong>
 			<%= sum + 800 %>
 	</div>
+<table class="table">
+			<thead>
+      <tr class="active">
+					<th>商品名</th>
+					<th>単価（税込）</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th>製作ステータス<th>
+						<th colspan="1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% sum = 0 %>
+					<% @order_products.each do |op| %>
+					<tr>
+						<td><%= op.product.name %></td>
+						<td><%= op.product.tax_included_price %>円</td>
+						<td><%= op.count %>個</td>
+						<td><%= (op.product.tax_included_price.to_i * op.count.to_i).to_s(:delimited) %>円</td>
+						<td><%= form_with model: op, url: admins_order_product_path(op.id) do |f| %>
+							<%= f.select :product_status, {'着手不可': 0, '製作待ち': 1, '製作中': 2, '製作完了': 3} %>
+							<%= f.submit "更新" %></td>
+							<% sub_total = op.product.tax_included_price.to_i * op.count %>
+							<% sum+=sub_total %>
+							<% end %>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+
+				<div>
+					<strong>商品合計</strong>
+					<%= sum.to_s(:delimited) %>
+					<strong>送料</strong>
+					<p>800円</p>
+					<strong>請求金額合計</strong>
+					<%= (sum.to_i + 800).to_s(:delimited) %>
+				</div>

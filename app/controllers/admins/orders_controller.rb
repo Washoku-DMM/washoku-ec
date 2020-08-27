@@ -11,22 +11,25 @@ class Admins::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @orders = Order.all
-    @delivery = Delivery.find(params[:id])
     @order_products = @order.order_products
   end
 
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-        redirect_to admins_orders_path(@order), notice: "更新完了"
-    else
+      if @order.order_status == 1
+       @order.order_products.each do |order_product|
+        order_product.update(product_status: 1)
+      end
+    end
+    redirect_to admins_orders_path(@order), notice: "更新完了"
+  else
     @order = Order.find(params[:id])
     @orders = Order.all
-    @delivery = Delivery.find(params[:id])
     @order_products = @order.order_products
-      render "show"
-    end
+    render "show"
   end
+end
 
   def total_price
     order_products.to_a.sum{ |order_product| order_oriduct.total_price }
@@ -37,6 +40,10 @@ class Admins::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:name,:shipping_fee,:postal_code,:adress,:payment_methods,:billing_amount,:order_status)
   end
+private
+def order_params
+  params.require(:order).permit(:name,:shipping_fee,:postal_code,:adress,:payment_methods,:billing_amount,:order_status)
+end
 
 
 end

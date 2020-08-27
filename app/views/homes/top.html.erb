@@ -1,8 +1,10 @@
 <!-- header -->
 <%= render 'admins/header' %>
 <!-- header -->
+<!-- サイドバーのジャンルは部分テンプレートを挿入 -->
+<%= render 'products/genres_search' %>
 
-<div class="col-lg-4">
+
 
 	<!-- お店の画像を背景にして表示させる↓ -->
 	<p>ようこそ、NaganoCakeへ！<br>
@@ -15,8 +17,10 @@
 
 <h2>オススメ商品</h2>
 <% @rank_products.each do |product| %>
-  <%= attachment_image_tag @product, :image, size: '200x200',format: "jpeg",fallback: "washoku.jpg" %>
-  <%= product.name %>
+<%= link_to product_path(product) do %>
+<%= attachment_image_tag @product, :image, size: '200x200',format: "jpeg",fallback: "washoku.jpg" %>
+<%= product.name %>
+<% end %>
   <%= product.price %>円
 <% end %>
 
