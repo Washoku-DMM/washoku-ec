@@ -10,9 +10,9 @@ class Admins::GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     if @genre.save
       redirect_to admins_genres_path, notice: "追加完了"
-      else
-        @genres = Genre.all
-        render 'index'
+    else
+      @genres = Genre.all
+      render 'index'
     end
   end
 
@@ -24,13 +24,13 @@ class Admins::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
       redirect_to admins_genres_path, notice: "更新完了"
-      else
-        @genre = Genre.find(params[:id])
-        render 'edit'
+    else
+      @genre = Genre.find(params[:id])
+      render 'edit'
     end
   end
 
-private
+  private
   def genre_params
     params.require(:genre).permit(:name, :is_active)
   end
