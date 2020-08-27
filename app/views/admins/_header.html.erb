@@ -1,8 +1,7 @@
 <header>
-<<<<<<< HEAD
    
        <ul class="nav navbar-nav navbar-right" >
-=======
+
   <% if customers_customer_signed_in? %>
 
 
@@ -12,7 +11,6 @@
     <% end %>
   </div>
 
->>>>>>> cec69eca43d4abdce5f7f698d56144a25cf46bc3
 
   <p>ようこそ、<%= current_customers_customer.family_name %><%= current_customers_customer.first_name %>さん！</p>
   <li class="aikonn">
@@ -27,17 +25,15 @@
   <li class="aikonn">
     <%= link_to 'ログアウト', destroy_customers_customer_session_path, method: :delete, class: 'btn btn-primary' %>
   </li>
-<<<<<<< HEAD
+
 </ul>
 
-</header>
+
 
   <% elsif admins_admin_signed_in? %>
-     <header>
+   
        <ul class="nav navbar-nav navbar-right" >
-=======
 
->>>>>>> cec69eca43d4abdce5f7f698d56144a25cf46bc3
 
 
   <% if admins_admin_signed_in? %>
@@ -85,13 +81,11 @@
   <li class="aikonn">
     <%= link_to 'ログイン',  customers_customer_session_path, class: 'btn btn-primary' %>
   </li>
-<<<<<<< HEAD
+
  </ul>
   <% end %>
 </header>
-=======
 
-  <% end %>
-  
-</header>
->>>>>>> cec69eca43d4abdce5f7f698d56144a25cf46bc3
+
+
+

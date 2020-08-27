@@ -20,7 +20,7 @@
 
                           <div class="row"><%= form_with(model: [@product, @cart_product], local: true, url: {controller: 'cart_products', action: 'create'}) do |f| %>
 
-<<<<<<< HEAD
+
                          <%= f.select :count, options_for_select((1..99).to_a), include_blank: "個数選択" %>
                          <%= f.hidden_field :product_id, value: @product.id  %></div>
                          <%= f.submit 'カートに入れる' %>
@@ -32,8 +32,6 @@
         </div>
     </div>
 </div>
-	
-=======
      <%= f.submit 'カートに入れる', class: "btn btn-primary" %>
   <% end %>
->>>>>>> cec69eca43d4abdce5f7f698d56144a25cf46bc3
+
