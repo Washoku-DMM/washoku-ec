@@ -1,8 +1,11 @@
+<div class="container">
 <!-- header -->
-<%= render 'admins/header' %>
+  <%= render 'admins/header' %>
+       <div class="row">
+          <div class="col-md-3">
 <!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-<%= render 'products/genres_search' %>
-<!-- サイドバーのジャンルは部分テンプレートを挿入 -->
+               <%= render 'products/genres_search' %>
+          </div>
 
 <%= attachment_image_tag @product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'100x100'  %>
 
@@ -35,3 +38,4 @@
   </tbody>
 </table>
   <% end %>
+

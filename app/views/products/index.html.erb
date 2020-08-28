@@ -22,10 +22,13 @@
 					</div>
 					<% end %>
 					<% end %>
-				</div>
 
-			</div>
+				</div>
+				</div>
+                <div class="row">
+					<%= will_paginate @products, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
+			   </div>
 		</div>
-       <%= will_paginate @products, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
 	</div>
 </div>
+
