@@ -5,30 +5,44 @@
   <h2>商品新規登録</h2>
 </div>
 
-<div class="body form-group"">
+<div class="body form-group">
+ <ul class="nav navbar-nav navbar-left" >
 
   <%= form_with model: @product, url: admins_products_path do |f| %>
-
   <%= f.attachment_field :image %>
-
-  <h4>商品名</h4>
-  <%= f.text_field :name %>
-
-  <h4>商品説明</h4>
-  <%= f.text_area :product_introduction %>
-
-  <h4>ジャンル</h4>
-  <!-- ↓作成途中 -->
-  <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %>
-
-  <h4>税抜価格</h4>
-  <%= f.text_field :price %>円
-
-  <h4>販売ステータス</h4>
-  <!-- ↓作成途中 値を返すのはtrue/falseじゃなくて販売中とかの方がいい？ -->
-  <%= f.select :is_active, [["販売中", "true"], ["売切れ", "false"]] %>
-
-  <%= f.submit "新規登録", class: "btn-sm btn-primary" %>
-
-  <% end %>
-</div>
+</ul>
+<ul class="nav navbar-nav navbar-left" >
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>商品名</td>
+        <td><%= f.text_field :name %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>商品説明</td>
+        <td><%= f.text_area :product_introduction %></td>
+      </tr>
+      <tr>
+        <td>ジャンル</td>
+        <td><%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %></td>
+      </tr>
+      <tr>
+        <td>税抜価格</td>
+        <td><%= f.text_field :price %>円</td>
+      </tr>
+      <tr>
+        <td>販売ステータス</td>
+        <td><%= f.select :is_active, [["販売中", "true"], ["売切れ", "false"]] %></td>
+      </tr>
+      <tr>
+        <td><%= f.submit "新規登録", class: "btn-sm btn-primary" %></td>
+      </tr>
+    </ul>
+    <% end %>
+  </div>

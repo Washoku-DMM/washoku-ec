@@ -6,6 +6,5 @@
      <div class="row">
          <% @genres.each do |genre| %>
           <h3><div><%= link_to genre.name, genre_products_path(genre) %></div></h3>
-         
           <% end %> 
       </div>

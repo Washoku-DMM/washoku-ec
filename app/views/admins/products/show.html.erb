@@ -6,8 +6,14 @@
 </div>
 
 <div class="body">
-	<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
-	<table>
+
+ <ul class="nav navbar-nav navbar-left" >
+
+   <%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
+
+ </ul>
+ <div class="table body">
+   <table>
     <thead>
       <tr>
         <th></th>
@@ -50,6 +56,6 @@
       </tr>
     </tbody>
   </table>
-
 </div>
 
+</div>
