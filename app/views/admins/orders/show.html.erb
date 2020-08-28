@@ -53,11 +53,11 @@
 				<tr>
 					<td><%= op.product.name %></td>
 					<td><%= op.product.tax_included_price %>円</td>
-					<td><%= op.count %>個</td>
-					<td><%= (op.product.tax_included_price.to_i * op.count.to_i).to_s(:delimited) %>円</td>
+					<td><%= op.count %></td>
+					<td><%= (op.product.tax_included_price.to_i * op.count.to_i).to_s(:delimited) %></td>
 					<td><%= form_with model: op, url: admins_order_product_path(op.id) do |f| %>
 						<%= f.select :product_status, {'着手不可': 0, '製作待ち': 1, '製作中': 2, '製作完了': 3} %>
-						<%= f.submit "更新" %></td>
+						<%= f.submit "更新", class: "btn-sm btn-primary" %></td>
 						<% sub_total = op.product.tax_included_price.to_i * op.count %>
 						<% sum+=sub_total %>
 						<% end %>
@@ -70,7 +70,7 @@
 				<tbody>
 					<tr>
 						<td><strong>商品合計</strong></td>
-						<td><%= sum.to_s(:delimited) %><br></td>
+						<td><%= sum.to_s(:delimited) %>円<br></td>
 					</tr>
 					<tr>
 						<td><strong>送料</strong></td>
@@ -78,7 +78,7 @@
 					</tr>
 					<tr>
 						<td><strong>請求金額合計</strong></td>
-						<td><%= (sum.to_i + 800).to_s(:delimited) %></td>
+						<td><strong><%= (sum.to_i + 800).to_s(:delimited) %>円</strong></td>
 					</tr>
 				</tbody>
 			</table>
