@@ -19,9 +19,14 @@ class OrdersController < ApplicationController
 
 
    def new
+    if current_customers_customer.cart_products.exists?
    		@order = Order.new
          @customer = current_customers_customer
          @deliveries = Delivery.where(customer_id: @customer.id)
+    else
+      flash[:danger] = 'カートが空です。'
+      redirect_to cart_products_path
+    end
    end
 
    def create
@@ -48,7 +53,7 @@ class OrdersController < ApplicationController
                @order.name = params[:order][:name]
          end
 
-            @order.save
+              @order.save
 
             if Delivery.find_by(address: @order.address).nil?
               @delivery = Delivery.new
@@ -73,38 +78,39 @@ class OrdersController < ApplicationController
             render :ordercomplete
 
       else
-       redirect_to top_path
         flash[:danger] = 'カートが空です。'
+        redirect_to cart_products_path
       end
 
    end
 
 
    def confirm
-         @order = Order.new
-         @cart_products = current_customers_customer.cart_products
-         @order.payment_methods = params[:order][:payment_methods]
-         @add = params[:order][:add].to_i
-         @customer = current_customers_customer
-         case @add
-            when 1
-               @order.postal_code = @customer.postal_code
-               @order.address = @customer.address
-               @order.name = @customer.family_name + @customer.first_name
+           @order = Order.new
+           @cart_products = current_customers_customer.cart_products
+           @order.payment_methods = params[:order][:payment_methods]
+           @add = params[:order][:add].to_i
+           @customer = current_customers_customer
+           case @add
+              when 1
+                 @order.postal_code = @customer.postal_code
+                 @order.address = @customer.address
+                 @order.name = @customer.family_name + @customer.first_name
 
-            when 2
-              @sta = params[:order][:address].to_i
-              @address = Delivery.find(@sta)
-              @order.postal_code = @address.postal_code
-              @order.address = @address.address
-              @order.name = @address.name
+              when 2
+                @sta = params[:order][:address].to_i
+                @address = Delivery.find(@sta)
+                @order.postal_code = @address.postal_code
+                @order.address = @address.address
+                @order.name = @address.name
 
-            when 3
-              @order.postal_code = params[:order][:new_add][:postal_code]
-              @order.address = params[:order][:new_add][:address]
-              @order.name = params[:order][:new_add][:name]
-         end
-   end
+              when 3
+                @order.postal_code = params[:order][:new_add][:postal_code]
+                @order.address = params[:order][:new_add][:address]
+                @order.name = params[:order][:new_add][:name]
+            end
+   
+    end
 
 
    def ordercomplete
@@ -118,12 +124,15 @@ class OrdersController < ApplicationController
      end
 
 
+
    def order_params
     params.require(:order).permit(
       :created_at, :address, :name, :order_status, :payment_methods, :postal_code, :shipping_fee, :billing_amount, :customer_id,
       order_products_attributes: [:order_id, :product_id, :count, :price, :product_status, :customer_id]
       )
    end
+
+
 
 
 

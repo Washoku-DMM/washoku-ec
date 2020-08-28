@@ -43,8 +43,8 @@
     <td><%= @customer.email %></td>
   </tr>
   <tr>
-    <td><%= link_to "編集する", edit_admins_customer_path(@customer),data: {"turbolinks" => false} %></td>
-    <td><%= link_to "注文履歴一覧を見る", admins_orders_path(@customer) %></td>
+    <td><%= link_to "編集する", edit_admins_customer_path(@customer),data: {"turbolinks" => false}, class: "btn-sm btn-primary" %></td>
+    <td><%= link_to "注文履歴一覧を見る", admins_orders_path(@customer), class: "btn-sm btn-primary" %></td>
   </tr>
 </tbody>
 </table>
