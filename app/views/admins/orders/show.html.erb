@@ -31,7 +31,7 @@
 			<tr>
 				<td>注文ステータス</td>
 				<td><%= f.label :order_status, '注文ステータス' %><%= f.select :order_status, {'入金待ち': 0, '入金確認': 1, '製作中': 2, '発送準備中': 3, '発送済み': 4} %></td>
-							<%= f.submit "更新", class: "btn-sm btn-primary" %></td>
+							<td><%= f.submit "更新", class: "btn-sm btn-primary" %></td></td>
 			</tr>
 		</tbody>
 	</table>
