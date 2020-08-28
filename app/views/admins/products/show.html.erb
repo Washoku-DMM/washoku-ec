@@ -6,50 +6,56 @@
 </div>
 
 <div class="body">
-	<%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
-	<table>
-    <thead>
-      <tr>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>商品名</td>
-        <td><%= @product.name %></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>商品説明</td>
-        <td><%= @product.product_introduction %></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>ジャンル</td>
-        <td><%= @genre.name %></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>税込価格（税抜価格）</td>
-        <td><%= @product.tax_included_price %>(<%= @product.price.to_s(:delimited) %>)円</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>販売ステータス</td>
-        <% if @product.is_active == true %>
-        <td>販売中</td>
-        <% else %>
-        <td>売切れ</td>
-        <% end %>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td><%= link_to '編集する', edit_admins_product_path(@product) , class: 'btn btn-primary' %></td>
-      </tr>
-    </tbody>
-  </table>
 
+ <ul class="nav navbar-nav navbar-left" >
+
+   <%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
+
+ </ul>
+ <div class="table body">
+ <table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>商品名</td>
+      <td><%= @product.name %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>商品説明</td>
+      <td><%= @product.product_introduction %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= @genre.name %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>税込価格（税抜価格）</td>
+      <td><%= @product.tax_included_price %>(<%= @product.price.to_s(:delimited) %>)円</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>販売ステータス</td>
+      <% if @product.is_active == true %>
+      <td>販売中</td>
+      <% else %>
+      <td>売切れ</td>
+      <% end %>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><%= link_to '編集する', edit_admins_product_path(@product) , class: 'btn btn-primary' %></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
+</div>

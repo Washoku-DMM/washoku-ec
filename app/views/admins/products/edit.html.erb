@@ -4,10 +4,12 @@
 
 <h2>商品編集</h2>
 
+ <ul class="nav navbar-nav navbar-left" >
 <%= form_with model: @product, url: admins_product_path do |f| %>
-
 <%= f.attachment_field :image %>
+</ul>
 
+ <ul class="nav navbar-nav navbar-left" >
 <table>
   <thead>
     <tr>
@@ -43,9 +45,10 @@
     <tr>
       <td></td>
       <td></td>
-      <%= f.submit "変更を保存", class: "btn-sm btn-primary" %>
+      <td><%= f.submit "変更を保存", class: "btn-sm btn-primary" %></td>
     </tr>
   </tr>
 </tbody>
 </table>
+</ul>
 <% end %>
