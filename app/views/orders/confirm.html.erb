@@ -82,8 +82,10 @@
   <%= f.hidden_field :billing_amount, :value => billling_amount %>
   <%= f.hidden_field :shipping_fee, :value => "#{@order.shipping_fee}" %>
 
+  <br>
 
-<%= link_to "注文情報入力画面へ戻る", new_order_path(@customer), class: "btn-sm btn-light edit_customer_#{@customer.id}" %>
+
+<%= link_to "注文情報入力画面へ戻る", new_order_path(@customer), class: "btn-sm btn-info edit_customer_#{@customer.id}" %>
 
 <br>
 

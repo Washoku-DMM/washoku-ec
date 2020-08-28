@@ -21,7 +21,7 @@
 <%= attachment_image_tag @product, :image, size: '200x200',format: "jpeg",fallback: "washoku.jpg" %>
 <%= product.name %>
 <% end %>
-  <%= product.price %>円
+  <%= number_to_currency(product.price, unit: "￥", strip_insignificant_zeros: true) %>
 <% end %>
 
 
