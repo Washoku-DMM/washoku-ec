@@ -1,16 +1,7 @@
-<!-- header -->
-<%= render 'admins/header' %>
-<!-- header -->
 
-<h2>登録情報編集</h2>
-
-<%= flash[:success] %>
-<%= flash[:danger] %>
-<%= flash[:info] %>
-
-<table class="table form-group">
+ <table class="table form-group">
             <tbody>
-              <%= form_for(@customer) do |f| %>
+              <%= form_with model: @customer, local: true do |f| %>
 
                 <tr>
                   <td>氏名</td>
@@ -37,8 +28,9 @@
                     <td>メールアドレス</td>
                     <td><%= f.text_field :email %></td>
                 </tr>
-                <tr><td><%= f.submit "変更を保存する", class: "btn-sm btn-primary" %></td>
+                    <tr><td><%= f.submit "変更を保存する", class: "btn-sm btn-primary" %></td>
                       <td>                        </td></tr>
+
                 <% end %>
             </tbody>
-</table>
+          </table>
