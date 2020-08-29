@@ -9,7 +9,7 @@
 
  <ul class="nav navbar-nav navbar-left" >
 
-   <%= attachment_image_tag @product, :image, :fill,300,300,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
+   <%= attachment_image_tag @product, :image,format:'jpeg', fallback: "washoku.jpg", size:'300x300'  %>
 
  </ul>
  <div class="table body">
@@ -52,7 +52,7 @@
       <tr>
         <td></td>
         <td></td>
-        <td><%= link_to '編集する', edit_admins_product_path(@product) , class: 'btn btn-primary' %></td>
+        <td><%= link_to '編集する', edit_admins_product_path(@product) , data: {"turbolinks" => false}, class: 'btn btn-primary' %></td>
       </tr>
     </tbody>
   </table>
