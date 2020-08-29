@@ -28,12 +28,13 @@
               <% @products.each do |product| %>
               <%= link_to product_path(product) do %>
               <div class="col-md-3">
-                <%= attachment_image_tag @product, :image, size: '100x100',format: "jpeg",fallback: "washoku.jpg" %><br>
+                <%= attachment_image_tag product, :image, size: '100x100',format: "jpeg",fallback: "washoku.jpg" %><br>
                 <%= product.name %><br>
                 <%= product.price %>円
               </div>
               <% end %>
               <% end %>
+
             </div>
     </div>
   </div>
