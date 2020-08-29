@@ -55,27 +55,27 @@ class OrdersController < ApplicationController
 
               @order.save
 
-            if Delivery.find_by(address: @order.address).nil?
-              @delivery = Delivery.new
-              @delivery.postal_code = @order.postal_code
-              @delivery.address = @order.address
-              @delivery.name = @order.name
-              @delivery.customer_id = current_customers_customer.id
-              @delivery.save
-            end
+                if Delivery.find_by(address: @order.address).nil?
+                  @delivery = Delivery.new
+                  @delivery.postal_code = @order.postal_code
+                  @delivery.address = @order.address
+                  @delivery.name = @order.name
+                  @delivery.customer_id = current_customers_customer.id
+                  @delivery.save
+                end
 
-            current_customers_customer.cart_products.each do |cart_product|
-              order_product = @order.order_products.build
-              order_product.order_id = @order.id
-              order_product.product_id = cart_product.product_id
-              order_product.count = cart_product.count
-              order_product.price = cart_product.product.price
-              order_product.customer_id = current_customers_customer.id
-              order_product.save
-              cart_product.destroy
+                current_customers_customer.cart_products.each do |cart_product|
+                  order_product = @order.order_products.build
+                  order_product.order_id = @order.id
+                  order_product.product_id = cart_product.product_id
+                  order_product.count = cart_product.count
+                  order_product.price = cart_product.product.price
+                  order_product.customer_id = current_customers_customer.id
+                  order_product.save
+                  cart_product.destroy
 
-            end
-            render :ordercomplete
+                end
+                render :ordercomplete
 
       else
         flash[:danger] = 'カートが空です。'

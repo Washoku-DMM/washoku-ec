@@ -1,50 +1,41 @@
 <div class="container">
 	<%= render 'admins/header' %>
-	<div class="row">
+	<div class="row topfield">
 
 		<div class="col-md-3">
 			<%= render 'products/genres_search' %>
 		</div>
 
 		<div class="col-md-9">
-			<div class="container">
-				<div class="row">
 					<div class="text-center">
 	              <!-- お店の画像を背景にして表示させる↓ -->
                 <div class="example">
-                <%= image_tag('top.jpg',size: '900x700') %>
+                <%= image_tag('top.jpg',size: '500x400') %>
 	               <p>ようこそ、NaganoCakeへ！<br>
 		              このサイトは、ケーキ販売のECサイトになります。<br>
 		              会員でない方でも商品の閲覧はできますが、<br>
 		              購入には会員登録が必要になります。
 	               </p>
                </div>
-	                </div>
-	            </div>
+	        </div>
+	  </div>
 
-                <div class="row">
-                	<div class="container">
-                		<div class="row">
-                        <h2>オススメ商品</h2>
-                    </div>
-                    <div class="row">
-                       <% @products.each do |product| %>
-                       <%= link_to product_path(product) do %>
-                       <div class="col-md-3">
-                           <%= attachment_image_tag @product, :image, size: '100x100',format: "jpeg",fallback: "washoku.jpg" %><br>
-                           <%= product.name %><br>
-                           <%= product.price %>円
-                       </div>
-                           <% end %>
-                           <% end %>
-                       </div>
-                    </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row">
+
+        		<div class="col-md-offset-3 col-md-9">
+              <h2>オススメ商品</h2>
+              <% @products.each do |product| %>
+              <%= link_to product_path(product) do %>
+              <div class="col-md-3">
+                <%= attachment_image_tag @product, :image, size: '100x100',format: "jpeg",fallback: "washoku.jpg" %><br>
+                <%= product.name %><br>
+                <%= product.price %>円
+              </div>
+              <% end %>
+              <% end %>
             </div>
-        </div>
     </div>
-
-
+  </div>
 
 

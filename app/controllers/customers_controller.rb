@@ -28,7 +28,7 @@ def update
 	@customer = Customer.find(params[:id])
 	if @customer.update(customer_params)
      flash[:success] = 'お客様の情報が更新されました！'
-	   redirect_to customer_path(@customer)
+	   redirect_to customer_path(@customer.id)
   else
      @customer = Customer.find(params[:id])
      flash[:danger] = 'お客様の情報を更新出来ませんでした。空欄の箇所はありませんか？'

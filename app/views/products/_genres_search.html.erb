@@ -1,10 +1,10 @@
 
 <!-- 販売ステータスが有効のみ表示 -->
-     <div class="row">
+     <div class="row genretitlefield">
         <h2>ジャンル検索</h2>
      </div>
-     <div class="row">
+     <div class="row genremainfield">
          <% @genres.each do |genre| %>
           <h3><div><%= link_to genre.name, genre_products_path(genre) %></div></h3>
-          <% end %> 
+          <% end %>
       </div>

@@ -18,7 +18,8 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <td><%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+
           <td><%= order.postal_code %><br>
               <%= order.address %>
               <%= order.name %></td>
@@ -28,7 +29,7 @@
             <% end %>
           </td>
           <td>
-            <%= order.billing_amount.to_s(:delimited) %>
+            <%= order.billing_amount.to_s(:delimited) %>円
           </td>
           <td>
             <% if order.order_status == 0 %>
