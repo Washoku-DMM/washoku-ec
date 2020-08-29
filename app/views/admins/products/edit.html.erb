@@ -1,0 +1,54 @@
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
+
+<h2>商品編集</h2>
+
+<ul class="nav navbar-nav navbar-left" >
+  <%= form_with model: @product, url: admins_product_path do |f| %>
+  <%= f.attachment_field :image %>
+</ul>
+
+<ul class="nav navbar-nav navbar-left" >
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>商品名</td>
+        <td><%= f.text_field :name %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>商品説明</td>
+        <td><%= f.text_area :product_introduction %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ジャンル</td>
+        <td><%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>税抜価格</td>
+        <td><%= f.text_field :price %>円</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>販売ステータス</td>
+        <td><%= f.select :is_active, [['販売中', true], ['売切れ', false]] %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><%= f.submit "変更を保存", class: "btn-sm btn-primary" %></td>
+      </tr>
+    </tr>
+  </tbody>
+</table>
+</ul>
+<% end %>

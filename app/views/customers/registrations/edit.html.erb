@@ -1,0 +1,54 @@
+<div class="container">
+
+  <!-- header -->
+  <%= render 'admins/header' %>
+  <!-- header -->
+
+  <%= flash[:success] %>
+  <%= flash[:danger] %>
+  <%= flash[:info] %>
+
+  <div class="row">
+    <div class="col-md-12">
+
+
+           <h3>パスワードを変更する</h3>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "customers/shared/error_messages", resource: resource %>
+
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <table class="table">
+                <tr>
+                  <th class="active">新しいパスワード</th>
+                  <td><%= f.password_field :password, autocomplete: "new-password" %>
+                      <% if @minimum_password_length %>
+                      <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="active">新しいパスワード(確認)</th>
+                  <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="active">現在のパスワード</th>
+                  <td><%= f.password_field :current_password, autocomplete: "current-password" %></td>
+                </tr>
+              </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-5 col-md-6">
+      <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to "マイページに戻る", :back, class: "btn-sm btn-info" %>
+    </div>
+  </div>
+</div>

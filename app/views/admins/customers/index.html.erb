@@ -1,0 +1,35 @@
+<!-- header -->
+<%= render "admins/header", customer: @customer %>
+<!-- header -->
+
+<div class="body title">
+  <h2>会員一覧</h2>
+</div>
+<div class="body">
+  <table class="table">
+    <thead class="thead-light">
+      <tr class="active">
+        <th>会員一覧</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= link_to admins_customer_path(customer) do %>
+          <%= customer.family_name %><%= customer.first_name %>
+          <% end %></td>
+          <td><%= customer.email %></td>
+          <% if customer.is_deleted == true %>
+          <td>有効</td>
+          <% else %>
+          <td>退会済み</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

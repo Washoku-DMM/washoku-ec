@@ -1,0 +1,91 @@
+<div class="container">
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
+
+  <div class="row">
+    <div class="main col-md-offset-3 col-md-10">
+      <div class="pagetitle">新規会員登録</div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>名前</td>
+            <td><%= f.label "(姓)"  %></td>
+            <td><%= f.text_field :family_name, autofocus: true, class: "name" %></td>
+            <td><%= f.label "(名)"  %></td>
+            <td><%= f.text_field :first_name, autofocus: true, class: "name" %></td>
+          </tr>
+          <tr>
+            <td><P>フリガナ</P></td>
+            <td><%= f.label "(セイ)"  %></td>
+            <td><%= f.text_field :family_name_kana, autofocus: true, class: "name" %></td>
+            <td><%= f.label "(メイ)" %></td>
+            <td><%= f.text_field :first_name_kana, autofocus: true, class: "name" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label "メールアドレス"  %></td>
+            <td> </td>
+            <td><%= f.text_field :email, autofocus: true, class: "email" %></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td><%= f.label "郵便番号(ハイフンなし)"  %></td>
+            <td> </td>
+            <td><%= f.text_field :postal_code, autofocus: true %></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td><%= f.label "住所"  %></td>
+            <td> </td>
+            <td><%= f.text_area :address, autofocus: true %></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td><%= f.label "電話番号(ハイフンなし)"  %></td>
+            <td> </td>
+            <td><%= f.text_field :phone_number, autofocus: true %></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td><%= f.label "パスワード(６文字以上)" %></td>
+            <td> </td>
+            <% if @minimum_password_length %>
+            <% end %>
+            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td><%= f.label "パスワード(確認用)" %></td>
+            <td> </td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><div class="actions">
+             <%= f.submit "新規登録",class: "btn btn-success" %>
+           </td>
+           <td></td>
+           <td></td>
+         </tr>
+       </tbody>
+     </table>
+
+   </div>
+   <% end %>
+   <div class="row">
+    <div class="pagetitle">既に登録済みの方はこちら</div>
+    <p><%= link_to ' こちら ', new_customers_customer_session_path %> からログインしてください。</p>
+  </div>
+</div>
+</div>
+</div>

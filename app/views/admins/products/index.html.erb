@@ -1,0 +1,38 @@
+<!-- header -->
+<%= render 'admins/header' %>
+<!-- header -->
+<div class="body title">
+  <h2>商品一覧</h2>
+</div>
+
+<div class="body">
+  <table class="table">
+    <thead>
+      <tr class="active">
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜き価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+        <th><td><%= link_to "＋", new_admins_product_path, data: {"turbolinks" => false} %></td></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+       <td><%= product.id %></td>
+       <td><%= link_to product.name, admins_product_path(product.id) %></td>
+       <td><%= product.price %></td>
+       <td><%= product.genre.name %></td>
+       <% if product.is_active == true %>
+       <td>販売中</td>
+       <% else %>
+       <td>売切れ</td>
+       <% end %>
+       <td> </td>
+       <td> </td>
+     </tr>
+     <% end %>
+   </tbody>
+ </table>
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+
+  <!-- header -->
+  <%= render 'admins/header' %>
+  <!-- header -->
+
+  <%= flash[:success] %>
+  <%= flash[:danger] %>
+  <%= flash[:info] %>
+
+	<div class="row">
+	    <div class="col-md-12">
+
+			<h2>マイページ</h2>
+
+
+			<h3>登録情報</h3>
+
+			<%= link_to "編集する", edit_customer_path(@customer), class: "btn-sm btn-primary edit_customer_#{@customer.id}", data: {"turbolinks" => false} %>
+
+			<%= link_to "パスワードを変更する", edit_customers_customer_registration_path, class: "btn-sm btn-primary", data: {"turbolinks" => false} %>
+
+
+			<br>
+			<br>
+
+			<table class="table">
+					<tr>
+						<th class="active">氏名</th>
+						<td><%= @customer.family_name %><%= @customer.first_name %></td>
+					</tr>
+					<tr>
+						<th class="active">カナ</th>
+						<td><%= @customer.family_name_kana %><%= @customer.first_name_kana %></td>
+					</tr>
+					<tr>
+						<th class="active">郵便番号</th>
+						<td><%= @customer.postal_code %></td>
+					</tr>
+					<tr>
+						<th class="active">住所</th>
+						<td><%= @customer.address %></td>
+					</tr>
+					<tr>
+						<th class="active">電話番号</th>
+						<td><%= @customer.phone_number %></td>
+					</tr>
+					<tr>
+						<th class="active">メールアドレス</th>
+						<td><%= @customer.email %></td>
+					</tr>
+			</table>
+
+			<h3>配送先</h3>
+
+			<%= link_to "一覧を見る", deliveries_path(@customer), class: "btn-sm btn-primary deliveries_#{@customer.id}", data: {"turbolinks" => false} %>
+
+
+			<h3>注文履歴</h3>
+
+			<%= link_to "一覧を見る", orders_path(@customer), class: "btn-sm btn-primary orders_#{@customer.id}", data: {"turbolinks" => false} %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,87 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container {
+	margin-top: 10px;
+	left: 0px;
+}
+.pagetitle {
+	display:inline-block;
+ 	background-color: #f5f5f5;
+}
+
+header{
+  height:150px;
+	posistion:relative;
+	left: 50px;
+}
+
+
+.body title{
+	left:80px;
+}
+
+.body{
+	width:100%;
+	margin: 0 auto;
+}
+
+.aikonn {
+      display:inline-block;
+}
+
+.example{
+	position: relative;
+}
+
+.example p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+   font-weight: bold;
+  font-size: 30px;
+  width: 100%
+  }
+
+.example img {
+  width: 100%;
+  }
+
+.genretitlefield {
+  border: 2px solid #808080;
+  text-align: center;
+  margin-top:40px;
+}
+
+.genremainfield {
+  border: 2px solid #808080;
+}
+
+.productindextitle {
+  text-align: center;
+  width:100%;
+}
+.thanks {
+  text-align: center;
+  line-height: center;
+  widht: 100px;
+
+}
