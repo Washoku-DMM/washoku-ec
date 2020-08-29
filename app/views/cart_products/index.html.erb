@@ -13,10 +13,6 @@
 
 		<h2 class="pagetitle">ショッピングカート</h2><br>
 
-		<%= flash[:success] %>
-		<%= flash[:danger] %>
-		<%= flash[:info] %>
-
 		<div class="text-right">
 			<%= link_to 'カートを空にする', destroy_all_cart_products_path, method: :delete, class: 'btn btn-danger' %>
 		</div>

@@ -14,7 +14,8 @@
         <% @products.each do |product| %>
           <div class="row col-md-3">
           <%= link_to product_path(product) do %>
-          <%= attachment_image_tag product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'100x100' %> <br>
+          <%= attachment_image_tag product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'100x100' %> 
+          <br>
           <%= product.name %> <br>
           ¥<%= product.price %>
           <% end %>
@@ -23,11 +24,11 @@
     </div>
   </div>
 </div>
+
 <div class="container">
     <div class="row col-md-offset-6 col-md-6">
       <%= will_paginate @products, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
     </div>
-  </div>
 </div>
 
 
