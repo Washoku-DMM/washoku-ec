@@ -12,7 +12,7 @@
   <tbody>
     <tr>
       <td class="active">注文日</td>
-      <td><%= @order.created_at %></td>
+      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
     </tr>
     <tr>
       <td class="active">配送先</td>
@@ -22,14 +22,14 @@
     </tr>
     <tr>
       <td class="active"><h4>支払方法</h4></td>
-        <% if @order.payment_methods == true %>
-      <td><h4>クレジットカード</h4></td>
+      <% if @order.payment_methods == true %>
+        <td><h4>クレジットカード</h4></td>
       <% else %>
-      <td><h4>銀行</h4></td>
-  <% end %>
+        <td><h4>銀行</h4></td>
+      <% end %>
     </tr>
     <tr>
-      <td>ステータス</td>
+      <td class="active">ステータス</td>
           <% if @order.order_status == 0 %>
             <td>入金待ち</td>
           <% elsif @order.order_status == 1 %>
@@ -66,7 +66,7 @@
       </td>
       <td><%= order_product.count %></td>
       <td>
-        <%= (sub_total = price_include_tax(order_product.price).to_i * order_product.count).to_s(:delimited) %>円
+        <%= (sub_total = price_include_tax(order_product.price).to_i * order_product.count).to_s(:delimited) %>
         <% sum += sub_total %>
       </td>
     </tr>
@@ -90,9 +90,9 @@
       <td><%= @order.shipping_fee %></td>
     </tr>
     <tr>
-      <td>ご請求額</td>
+      <td><strong>ご請求額</strong></td>
       <td>
-        <%= (sum + @order.shipping_fee).to_s(:delimited) %>円
+        <strong><%= (sum + @order.shipping_fee).to_s(:delimited) %></strong>
       </td>
     </tr>
   </tbody>

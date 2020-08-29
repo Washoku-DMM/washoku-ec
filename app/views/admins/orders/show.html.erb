@@ -61,7 +61,7 @@
 							<td><%= (op.product.tax_included_price.to_i * op.count.to_i).to_s(:delimited) %>円</td>
 							<td><%= form_with model: op, url: admins_order_product_path(op.id) do |f| %>
 								<%= f.select :product_status, {'着手不可': 0, '製作待ち': 1, '製作中': 2, '製作完了': 3} %>
-								<%= f.submit "更新" %></td>
+								<%= f.submit "更新" ,class: "btn-sm btn-primary" %></td>
 								<% sub_total = op.product.tax_included_price.to_i * op.count %>
 								<% sum+=sub_total %>
 								<% end %>
@@ -90,3 +90,4 @@
 					</table>
 				</div>
 			</ul>
+>>>>>>> a47a24c08b53db4da83f3283cf6e108ec51583c6

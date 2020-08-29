@@ -26,7 +26,7 @@
 }
 
 header{
-  height:200px;
+  height:150px;
 	posistion:relative;
 	left: 50px;
 }
@@ -64,3 +64,24 @@ header{
 .example img {
   width: 100%;
   }
+
+.genretitlefield {
+  border: 2px solid #808080;
+  text-align: center;
+  margin-top:40px;
+}
+
+.genremainfield {
+  border: 2px solid #808080;
+}
+
+.productindextitle {
+  text-align: center;
+  width:100%;
+}
+.thanks {
+  text-align: center;
+  line-height: center;
+  widht: 100px;
+
+}
