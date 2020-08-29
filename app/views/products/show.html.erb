@@ -1,41 +1,57 @@
 <div class="container">
-<!-- header -->
+    <!-- header -->
   <%= render 'admins/header' %>
-       <div class="row">
-          <div class="col-md-3">
-<!-- サイドバーのジャンルは部分テンプレートを挿入 -->
-               <%= render 'products/genres_search' %>
-          </div>
 
-<%= attachment_image_tag @product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'100x100'  %>
+  <div class="row">
+    <div class="col-md-3">
+     <%= render 'products/genres_search' %>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><h1><%= @product.name %></h1></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><h4><%= @product.product_introduction %></h4></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><h4>¥<%= @product.tax_included_price %>（税込）</h4></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><%= form_with(model: [@product, @cart_product], local: true, url: {controller: 'cart_products', action: 'create'}) do |f| %><br>
-        <%= f.select :count, options_for_select((1..99).to_a), include_blank: "個数選択" %>
-        <%= f.hidden_field :product_id, value: @product.id  %>
-        <%= f.submit 'カートに入れる', class: "btn btn-primary" %></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-  <% end %>
+    <div class="col-md-offset-1 col-md-8">
+
+      <ul class="nav navbar-nav navbar-left" >
+
+      <%= attachment_image_tag @product, :image, :fill,30,30,format:'jpeg',fallback: "washoku.jpg", size:'300x300'  %>
+
+      </ul>
+
+      <div class="table body">
+
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><h1><%= @product.name %></h1></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><h4><%= @product.product_introduction %></h4></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><h4>¥<%= @product.tax_included_price %>（税込）</h4></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><%= form_with(model: [@product, @cart_product], local: true, url: {controller: 'cart_products', action: 'create'}) do |f| %><br>
+                <%= f.select :count, options_for_select((1..99).to_a), include_blank: "個数選択" %>
+                <%= f.hidden_field :product_id, value: @product.id  %>
+                <%= f.submit 'カートに入れる', class: "btn btn-primary" %>
+                <% end %>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 
