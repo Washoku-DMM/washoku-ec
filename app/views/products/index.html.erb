@@ -13,8 +13,9 @@
 					<h2>商品一覧</h2>
 				</div>
 				<div class="row">
-					<% @products.each do |product| %>
+				<% @products.each do |product| %>
 					<%= link_to product_path(product) do %>
+
 					<div class="col-md-3">
 						<%= attachment_image_tag product, :image,format:'jpeg',fallback: "washoku.jpg", size:'100x100' %> <br>
 						<%= product.name %> <br>
@@ -22,12 +23,14 @@
 					</div>
 					<% end %>
 					<% end %>
-
-				</div>
-				</div>
-                <div class="row">
-					<%= will_paginate @products, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
-			   </div>
 		</div>
 	</div>
+</div>
+
+<div class="container">
+		<div class="row col-md-offset-6 col-md-6">
+			<%= will_paginate @products, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
+		</div>
+	</div>
+</div>
 </div>
