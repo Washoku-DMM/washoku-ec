@@ -1,6 +1,15 @@
-<!-- header -->
-<%= render 'admins/header' %>
-<!-- header -->
+<div class="container">
+
+  <!-- header -->
+  <%= render 'admins/header' %>
+  <!-- header -->
+
+  <%= flash[:success] %>
+  <%= flash[:danger] %>
+  <%= flash[:info] %>
+
+  <div class="row">
+      <div class="col-md-12">
 
     <h2>注文履歴一覧</h2>
 
@@ -49,4 +58,7 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+</div>
+</div>
 

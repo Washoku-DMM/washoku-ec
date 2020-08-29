@@ -1,179 +1,124 @@
-<!-- header -->
-<%= render 'admins/header' %>
-<!-- header -->
+<div class="container">
+
+  <!-- header -->
+  <%= render 'admins/header' %>
+  <!-- header -->
+
+  <%= flash[:success] %>
+  <%= flash[:danger] %>
+  <%= flash[:info] %>
+
 <h2>注文履歴詳細</h2>
+  
+  <div class="row">
+    <div class="col-md-9">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>注文情報</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="active">注文日</td>
-      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-    </tr>
-    <tr>
-      <td class="active">配送先</td>
-      <td><%= @order.postal_code %><br>
-        <%= @order.address %>
-        <%= @order.name %></td>
-      </tr>
-      <tr>
-        <td class="active"><h4>支払方法</h4></td>
-        <% if @order.payment_methods == true %>
-        <td><h4>クレジットカード</h4></td>
-        <% else %>
-        <td><h4>銀行</h4></td>
-        <% end %>
-      </tr>
-      <tr>
-        <td>ステータス</td>
-        <% if @order.order_status == 0 %>
-        <td>入金待ち</td>
-        <% elsif @order.order_status == 1 %>
-        <td>入金確認</td>
-        <% elsif @order.order_status == 2 %>
-        <td>製作中</td>
-        <% elsif @order.order_status == 3 %>
-        <td>発送準備中</td>
-        <% else %>
-        <td>発送済み</td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>注文情報</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="active">注文日</td>
+            <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td class="active">配送先</td>
+            <td><%= @order.postal_code %><br>
+                <%= @order.address %>
+                <%= @order.name %></td>
+          </tr>
+          <tr>
+            <td class="active"><h4>支払方法</h4></td>
+            <% if @order.payment_methods == true %>
+              <td><h4>クレジットカード</h4></td>
+            <% else %>
+              <td><h4>銀行</h4></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td class="active">ステータス</td>
+                <% if @order.order_status == 0 %>
+                  <td>入金待ち</td>
+                <% elsif @order.order_status == 1 %>
+                  <td>入金確認</td>
+                <% elsif @order.order_status == 2 %>
+                  <td>製作中</td>
+                <% elsif @order.order_status == 3 %>
+                  <td>発送準備中</td>
+                <% else %>
+                  <td>発送済み</td>
+                <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>注文内容</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>商品</td>
-        <td>単価（税込）</td>
-        <td>個数</td>
-        <td>小計</td>
-      </tr>
-      <% sum = 0 %>
-      <% @order.order_products.each do |order_product| %>
-      <tr>
-        <td><%= order_product.product.name %></td>
-        <td><%= price_include_tax(order_product.price) %>
-        </td>
-        <td><%= order_product.count %></td>
-        <td>
-          <%= (sub_total = price_include_tax(order_product.price).to_i * order_product.count).to_s(:delimited) %>円
-          <% sum += sub_total %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="col-md-3">
 
-  <table class="table table-hover table-inverse">
-    <thead>
-      <tr>
-        <th>請求情報</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>商品合計</td>
-        <td><%= sum.to_s(:delimited) %></td>
-      </tr>
-      <tr>
-        <td>配送料</td>
-        <td><%= @order.shipping_fee %></td>
-      </tr>
-      <tr>
-        <td>ご請求額</td>
-        <td>
-          <%= (sum + @order.shipping_fee).to_s(:delimited) %>円
-        </td>
-      </tr>
-    </tbody>
-  </table>
-          <%= @order.address %>
-          <%= @order.name %></td>
-    </tr>
-    <tr>
-      <td class="active"><h4>支払方法</h4></td>
-      <% if @order.payment_methods == true %>
-        <td><h4>クレジットカード</h4></td>
-      <% else %>
-        <td><h4>銀行</h4></td>
-      <% end %>
-    </tr>
-    <tr>
-      <td class="active">ステータス</td>
-          <% if @order.order_status == 0 %>
-            <td>入金待ち</td>
-          <% elsif @order.order_status == 1 %>
-            <td>入金確認</td>
-          <% elsif @order.order_status == 2 %>
-            <td>製作中</td>
-          <% elsif @order.order_status == 3 %>
-            <td>発送準備中</td>
-          <% else %>
-            <td>発送済み</td>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>請求情報</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品合計</td>
+            <td>
+              <% sum = 0 %>
+              <% @order.order_products.each do |order_product| %>
+              <% (sub_total = price_include_tax(order_product.price).to_i * order_product.count).to_s(:delimited) %>
+              <% sum += sub_total %>
+              <%= sum.to_s(:delimited) %></td>
+              <% end %>
+          </tr>
+          <tr>
+            <td>配送料</td>
+            <td><%= @order.shipping_fee %></td>
+          </tr>
+          <tr>
+            <td><strong>ご請求額</strong></td>
+            <td>
+              <strong><%= (sum + @order.shipping_fee).to_s(:delimited) %></strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-9">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>注文内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品</td>
+            <td>単価（税込）</td>
+            <td>個数</td>
+            <td>小計</td>
+          </tr>
+          <tr>
+              <% sum = 0 %>
+              <% @order.order_products.each do |order_product| %>
+            <td><%= order_product.product.name %></td>
+            <td><%= price_include_tax(order_product.price) %>
+            </td>
+            <td><%= order_product.count %></td>
+            <td>
+              <%= (sub_total = price_include_tax(order_product.price).to_i * order_product.count).to_s(:delimited) %>
+            </td>
+          </tr>
           <% end %>
-    </tr>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>注文内容</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>商品</td>
-      <td>単価（税込）</td>
-      <td>個数</td>
-      <td>小計</td>
-    </tr>
-    <% sum = 0 %>
-    <% @order.order_products.each do |order_product| %>
-    <tr>
-      <td><%= order_product.product.name %></td>
-      <td><%= price_include_tax(order_product.price) %>
-      </td>
-      <td><%= order_product.count %></td>
-      <td>
-        <%= (sub_total = price_include_tax(order_product.price).to_i * order_product.count).to_s(:delimited) %>
-        <% sum += sub_total %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th>請求情報</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>商品合計</td>
-      <td><%= sum.to_s(:delimited) %></td>
-    </tr>
-    <tr>
-      <td>配送料</td>
-      <td><%= @order.shipping_fee %></td>
-    </tr>
-    <tr>
-      <td><strong>ご請求額</strong></td>
-      <td>
-        <strong><%= (sum + @order.shipping_fee).to_s(:delimited) %></strong>
-      </td>
-    </tr>
-  </tbody>
-</table>

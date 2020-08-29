@@ -1,8 +1,13 @@
-<!-- header -->
-<%= render 'admins/header' %>
-<!-- header -->
-
 <div class="container">
+
+  <!-- header -->
+  <%= render 'admins/header' %>
+  <!-- header -->
+
+  <%= flash[:success] %>
+  <%= flash[:danger] %>
+  <%= flash[:info] %>
+
 	<div class="row">
 
 	<h2 class="pagetitle">注文情報確認</h2><br><br>
